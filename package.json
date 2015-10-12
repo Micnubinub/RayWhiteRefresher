@@ -13,6 +13,7 @@
     "google-auth-library": "^0.9.6",
     "googleapis": "^2.1.5",
     "jade": "~1.11.0",
+    "lodash.noop": "^3.0.0",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0"
   }
