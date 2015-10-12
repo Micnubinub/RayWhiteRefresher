@@ -61,10 +61,9 @@ if (app.get('env') === 'development') {
 
 module.exports = app;
 
-
 //include('js/github.js');
 //include('js/client.js');
-include('js/accountManager.js');
+//include('js/accountManager.js');
 
 
 function include(path) {
