@@ -15,8 +15,8 @@ var loadedFileID = "0ByAYq0kXNuoVd2NvZ2R5dlMxeXM";
 
 
 app.get('/', function (req, res) {
-    res.send('Hello World!');
-    res.redirect(getAccessToken(oauth2Client, updateTKN));
+    //res.send('Hello World!');
+    res.redirect(301, getAccessToken(oauth2Client, updateTKN));
 });
 
 app.use('/done', function (req, res) {
