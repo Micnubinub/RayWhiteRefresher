@@ -68,15 +68,9 @@ app.use(function (err, req, res, next) {
 });
 
 
-
 var readline = require('readline');
-
 var google = require('googleapis');
 var OAuth2Client = google.auth.OAuth2;
-
-
-// Client ID and client secret are available at
-// https://code.google.com/apis/console
 var REDIRECT_URL = 'http://blogs.holyfamily.catholic.edu.au/34ibkc/files/2015/02/thankyou-2by1lt7.jpg';
 
 var oauth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
