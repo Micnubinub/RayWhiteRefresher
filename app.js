@@ -67,7 +67,6 @@ app.use(function (err, req, res, next) {
     });
 });
 
-
 var readline = require('readline');
 var google = require('googleapis');
 var OAuth2Client = google.auth.OAuth2;
