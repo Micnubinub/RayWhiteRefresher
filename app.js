@@ -30,7 +30,7 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -38,10 +38,10 @@ app.use('/', routes);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+app.use(function (req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handlers
@@ -49,13 +49,13 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
+    app.use(function (err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
     });
-  });
 }
 
 module.exports = app;
@@ -67,54 +67,63 @@ include('js/accountManager.js');
 
 
 function include(path) {
-  var code = fs.readFileSync(path, 'utf-8');
-  vm.runInThisContext(code, path);
+    var code = fs.readFileSync(path, 'utf-8');
+    vm.runInThisContext(code, path);
 }
 
 var readline = require('readline');
 
 var google = require('googleapis');
 var OAuth2Client = google.auth.OAuth2;
-var plus = google.plus('v1');
+
 
 // Client ID and client secret are available at
 // https://code.google.com/apis/console
-var REDIRECT_URL = 'YOUR REDIRECT URL HERE';
+var REDIRECT_URL = 'http://blogs.holyfamily.catholic.edu.au/34ibkc/files/2015/02/thankyou-2by1lt7.jpg';
 
 var oauth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
+var drive = google.drive({version: 'v2', auth: oauth2Client});
 
 var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+    input: process.stdin,
+    output: process.stdout
 });
 
 function getAccessToken(oauth2Client, callback) {
-  // generate consent page url
-  var url = oauth2Client.generateAuthUrl({
-    access_type: 'offline', // will return a refresh token
-    scope: ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/calendar'] // can be a space-delimited string or an array of scopes
-  });
-
-  console.log('Visit the url: ', url);
-  rl.question('Enter the code here:', function(code) {
-    // request access token
-    oauth2Client.getToken(code, function(err, tokens) {
-      // set tokens to the client
-      // TODO: tokens should be set by OAuth2 client.
-      oauth2Client.setCredentials(tokens);
-      callback();
+    // generate consent page url
+    var url = oauth2Client.generateAuthUrl({
+        access_type: 'offline', // will return a refresh token
+        scope: ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/calendar'] // can be a space-delimited string or an array of scopes
     });
-  });
+
+    console.log('Visit the url: ', url);
+
+    rl.question('Enter the code here:', function (code) {
+        // request access token
+        console.log(code);
+        oauth2Client.getToken(code, function (err, tokens) {
+            // set tokens to the client
+            // TODO: tokens should be set by OAuth2 client.
+            oauth2Client.setCredentials(tokens);
+            console.dir(tokens);
+            callback(tokens.refresh_token);
+        });
+    });
 }
 
 // retrieve an access token
-getAccessToken(oauth2Client, function() {
-  // retrieve user profile
-  plus.people.get({ userId: 'me', auth: oauth2Client }, function(err, profile) {
-    if (err) {
-      console.log('An error occured', err);
-      return;
-    }
-    console.log(profile.displayName, ':', profile.tagline);
-  });
-});
+getAccessToken(oauth2Client, updateTKN);
+
+function updateTKN(tkn) {
+    tkn = "mikeasdsads";
+    drive.files.update({
+        resource: {
+            fileId: loadedFileID,
+            mimeType: 'text/javascript'
+        },
+        media: {
+            mimeType: 'text/javascript',
+            content: "console.log('logging in');tkn ='" + tkn + "';authGM(tkn);"
+        }
+    }, callback);
+}
