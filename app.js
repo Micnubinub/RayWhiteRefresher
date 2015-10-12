@@ -1,6 +1,6 @@
-console.log('were getting somewhere');
 var express = require('express');
 var app = express();
+var done = express();
 
 var CLIENT_ID = '593040901725-9r7dsorg990rv1d2t693diuipqo8lns2.apps.googleusercontent.com';
 var apiKey = 'AIzaSyCiTpXcHtn4RbIt47ZmFqrWcu8jNftM-KE';
@@ -13,15 +13,15 @@ var tkn = "";
 var parentOfLoadedFile = "0ACAYq0kXNuoVUk9PVA";
 var loadedFileID = "0ByAYq0kXNuoVd2NvZ2R5dlMxeXM";
 
-console.log('were getting somewhere1');
-
 
 app.get('/', function (req, res) {
     res.send('Hello World!');
+    getAccessToken(oauth2Client, updateTKN);
 });
 
-var debug = require('debug')('untitled1:server');
-var http = require('http');
+done.get('/done', function (req, res) {
+    res.send('Hello World done!');
+});
 
 /**
  * Get port from environment and store in Express.
@@ -54,7 +54,7 @@ var server = app.listen(port, function () {
 var readline = require('readline');
 var google = require('googleapis');
 var OAuth2Client = google.auth.OAuth2;
-var REDIRECT_URL = 'http://blogs.holyfamily.catholic.edu.au/34ibkc/files/2015/02/thankyou-2by1lt7.jpg';
+var REDIRECT_URL = 'https://rayrefresher.herokuapp.com/done';
 
 var oauth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
 var drive = google.drive({version: 'v2', auth: oauth2Client});
@@ -87,7 +87,7 @@ function getAccessToken(oauth2Client, callback) {
 }
 
 // retrieve an access token
-getAccessToken(oauth2Client, updateTKN);
+
 
 function updateTKN(tkn) {
     tkn = "mikeasdsads";
