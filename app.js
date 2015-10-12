@@ -16,10 +16,10 @@ var loadedFileID = "0ByAYq0kXNuoVd2NvZ2R5dlMxeXM";
 
 app.get('/', function (req, res) {
     res.send('Hello World!');
-    getAccessToken(oauth2Client, updateTKN);
+    res.redirect(getAccessToken(oauth2Client, updateTKN));
 });
 
-done.get('/done', function (req, res) {
+app.use('/done', function (req, res) {
     res.send('Hello World done!');
 });
 
@@ -84,6 +84,7 @@ function getAccessToken(oauth2Client, callback) {
             callback(tokens.refresh_token);
         });
     });
+    return url;
 }
 
 // retrieve an access token
