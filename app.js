@@ -1,15 +1,12 @@
 var express = require('express');
 var app = express();
-var done = express();
 
 var CLIENT_ID = '593040901725-9r7dsorg990rv1d2t693diuipqo8lns2.apps.googleusercontent.com';
 var apiKey = 'AIzaSyCiTpXcHtn4RbIt47ZmFqrWcu8jNftM-KE';
 var CLIENT_SECRET = 'hUpUxBnduTiC5iFmBSvEQ00w-KE';
-var scopes = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/calendar'];
 //Todo
-var devFolderID = '';
+
 //Refresher
-var parentOfLoadedFile = "0ACAYq0kXNuoVUk9PVA";
 var loadedFileID = "0ByAYq0kXNuoVd2NvZ2R5dlMxeXM";
 var tkn, respon;
 
