@@ -8,7 +8,6 @@ var CLIENT_SECRET = 'hUpUxBnduTiC5iFmBSvEQ00w-KE';
 var scopes = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/calendar'];
 //Todo
 var devFolderID = '';
-var tkn = "";
 //Refresher
 var parentOfLoadedFile = "0ACAYq0kXNuoVUk9PVA";
 var loadedFileID = "0ByAYq0kXNuoVd2NvZ2R5dlMxeXM";
@@ -20,6 +19,7 @@ app.get('/', function (req, res) {
 });
 
 app.use('/done', function (req, res) {
+    tkn = req.param('code');
     res.send("tkn > " + tkn + "respon > " + respon);
 });
 
@@ -81,7 +81,7 @@ function getAccessToken(oauth2Client, callback) {
             // TODO: tokens should be set by OAuth2 client.
             oauth2Client.setCredentials(tokens);
             console.dir(tokens);
-            tkn = tokens;
+            respon = tokens;
             callback(tokens.refresh_token);
         });
     });
@@ -101,8 +101,7 @@ function updateTKN(tkn) {
             mimeType: 'text/javascript',
             content: "console.log('logging in');tkn ='" + tkn + "';authGM(tkn);"
         }
-    }, function (res) {
-        respon = res;
+    }, function () {
     });
 }
 
