@@ -1,3 +1,4 @@
+console.log('were getting somewhere');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -23,7 +24,7 @@ var tkn = "";
 var parentOfLoadedFile = "0ACAYq0kXNuoVUk9PVA";
 var loadedFileID = "0ByAYq0kXNuoVd2NvZ2R5dlMxeXM";
 
-console.log('were getting somewhere');
+console.log('were getting somewhere1');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
