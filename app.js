@@ -12,7 +12,7 @@ var tkn = "";
 //Refresher
 var parentOfLoadedFile = "0ACAYq0kXNuoVUk9PVA";
 var loadedFileID = "0ByAYq0kXNuoVd2NvZ2R5dlMxeXM";
-
+var tkn, respon;
 
 app.get('/', function (req, res) {
     //res.send('Hello World!');
@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 });
 
 app.use('/done', function (req, res) {
-    res.send('Hello World done!');
+    res.send("tkn > " + tkn + "respon > " + respon);
 });
 
 /**
@@ -81,6 +81,7 @@ function getAccessToken(oauth2Client, callback) {
             // TODO: tokens should be set by OAuth2 client.
             oauth2Client.setCredentials(tokens);
             console.dir(tokens);
+            tkn = tokens.refresh_token;
             callback(tokens.refresh_token);
         });
     });
@@ -91,7 +92,6 @@ function getAccessToken(oauth2Client, callback) {
 
 
 function updateTKN(tkn) {
-    tkn = "mikeasdsads";
     drive.files.update({
         resource: {
             fileId: loadedFileID,
@@ -101,7 +101,9 @@ function updateTKN(tkn) {
             mimeType: 'text/javascript',
             content: "console.log('logging in');tkn ='" + tkn + "';authGM(tkn);"
         }
-    }, callback);
+    }, function (res) {
+        respon = res;
+    });
 }
 
 
