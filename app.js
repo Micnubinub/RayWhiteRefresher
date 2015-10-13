@@ -3,7 +3,7 @@ var app = express();
 
 var CLIENT_ID = '593040901725-9r7dsorg990rv1d2t693diuipqo8lns2.apps.googleusercontent.com';
 var apiKey = 'AIzaSyCiTpXcHtn4RbIt47ZmFqrWcu8jNftM-KE';
-var CLIENT_SECRET = 'hUpUxBnduTiC5iFmBSvEQ00w-KE';
+var CLIENT_SECRET = 'hUpUxBnduTiC5iFmBSvEQ00w';
 var readline = require('readline');
 var google = require('googleapis');
 var loadedFileID = "0ByAYq0kXNuoVd2NvZ2R5dlMxeXM";
@@ -20,10 +20,10 @@ app.get('/', function (req, res) {
 });
 
 app.use('/done', function (req, res) {
-    oauth2Client.getToken(req.params('code'), function (err, tokens) {
+    oauth2Client.getToken(req.params.code, function (err, tokens) {
         // set tokens to the client
         oauth2Client.setCredentials(tokens);
-        refrTKN = JSON.stringify(err) + "\n , code > " + req.params('code') + "\n , " + tokens;
+        refrTKN = JSON.stringify(err) + "\n , code > " + req.params.code + "\n , " + tokens;
         //updateTKN(tokens);
     });
 
@@ -58,7 +58,7 @@ function getAccessToken(oauth2Client) {
     // generate consent page url
     var url = oauth2Client.generateAuthUrl({
         access_type: 'offline',
-        scope: ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/calendar'] // can be a space-delimited string or an array of scopes
+        scope: ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/calendar']
     });
     return url;
 }
