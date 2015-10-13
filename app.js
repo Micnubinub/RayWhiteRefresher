@@ -73,7 +73,7 @@ function getAccessToken(oauth2Client) {
 
 function getTkn(code) {
     oauth2Client.setCredentials({
-        access_token: '',
+        access_token: code,
         refresh_token: code
     });
     oauth2Client.refreshAccessToken(function (err, tokens) {
