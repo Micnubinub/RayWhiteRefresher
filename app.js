@@ -1,18 +1,15 @@
 var express = require('express');
 var app = express();
 
-var CLIENT_ID = '593040901725-9r7dsorg990rv1d2t693diuipqo8lns2.apps.googleusercontent.com';
+const CLIENT_ID = '593040901725-9r7dsorg990rv1d2t693diuipqo8lns2.apps.googleusercontent.com';
 var apiKey = 'AIzaSyCiTpXcHtn4RbIt47ZmFqrWcu8jNftM-KE';
-var CLIENT_SECRET = 'hUpUxBnduTiC5iFmBSvEQ00w';
 var readline = require('readline');
 var google = require('googleapis');
 var loadedFileID = "0ByAYq0kXNuoVd2NvZ2R5dlMxeXM";
 var OAuth2Client = google.auth.OAuth2;
-var REDIRECT_URL = 'https://raywhiterefresher.herokuapp.com/done';
-var oauth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
+var oauth2Client = new OAuth2Client(CLIENT_ID, 'hUpUxBnduTiC5iFmBSvEQ00w', 'https://raywhiterefresher.herokuapp.com/done');
 var drive = google.drive('v2');
-var tkn, respon, refrTKN, testVa = "didn't";
-
+var tkn, respon, refrTKN, testVa;
 
 app.get('/', function (req, res) {
     //res.send('Hello World!');
