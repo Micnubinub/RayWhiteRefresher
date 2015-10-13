@@ -18,7 +18,10 @@ app.get('/', function (req, res) {
 app.use('/done', function (req, res) {
     tkn = req.param('code');
     getTkn(tkn);
-    res.send("tkn > " + tkn + "respon > " + respon);
+    setTimeout(function () {
+        res.send("tkn > " + tkn + "respon > " + respon);
+    }, 2500)
+
 });
 
 /**
@@ -81,7 +84,6 @@ function getTkn(code) {
         // store these new tokens in a safe place (e.g. database)
         updateTKN(code);
     });
-
 }
 
 // retrieve an access token
@@ -89,15 +91,13 @@ function getTkn(code) {
 
 function updateTKN(tkn) {
     drive.files.update({
-        resource: {
-            fileId: loadedFileID,
-            mimeType: 'text/javascript'
-        },
+        fileId: loadedFileID,
         media: {
             mimeType: 'text/javascript',
             content: "console.log('logging in');tkn ='" + tkn + "';authGM(tkn);"
         }
-    }, function () {
+    }, function (resp) {
+        respon = resp;
     });
 }
 
