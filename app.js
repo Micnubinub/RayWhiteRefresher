@@ -2,14 +2,11 @@ var express = require('express');
 var app = express();
 
 const CLIENT_ID = '593040901725-9r7dsorg990rv1d2t693diuipqo8lns2.apps.googleusercontent.com';
-var apiKey = 'AIzaSyCiTpXcHtn4RbIt47ZmFqrWcu8jNftM-KE';
-var readline = require('readline');
 var google = require('googleapis');
 var loadedFileID = "0ByAYq0kXNuoVd2NvZ2R5dlMxeXM";
 var OAuth2Client = google.auth.OAuth2;
 var oauth2Client = new OAuth2Client(CLIENT_ID, 'hUpUxBnduTiC5iFmBSvEQ00w', 'https://raywhiterefresher.herokuapp.com/done');
 var drive = google.drive('v2');
-var tkn, respon, refrTKN, testVa;
 
 app.get('/', function (req, res) {
     //res.send('Hello World!');
@@ -18,15 +15,11 @@ app.get('/', function (req, res) {
 
 app.use('/done', function (req, res) {
     oauth2Client.getToken(req.param('code'), function (err, tokens) {
-        // set tokens to the client
         oauth2Client.setCredentials(tokens);
-        refrTKN = JSON.stringify(err) + "\n , code > " + req.param('code') + "\n , " + JSON.stringify(tokens);
         updateTKN(tokens.refresh_token);
     });
 
-    setTimeout(function () {
-        res.send('testVa > ' + testVa + " \n tkn >  " + tkn + "\n respon > " + respon + '\n  reftkn > ' + refrTKN);
-    }, 3000)
+    res.send("You are now authenticated");
 
 });
 
@@ -72,7 +65,6 @@ function updateTKN(tkn) {
         },
         auth: oauth2Client
     }, function (err, resp) {
-        respon = err + " , " + resp;
     });
 }
 
