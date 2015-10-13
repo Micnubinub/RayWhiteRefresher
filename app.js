@@ -17,16 +17,16 @@ app.get('/', function (req, res) {
 });
 
 app.use('/done', function (req, res) {
-    oauth2Client.getToken(req.params[0], function (err, tokens) {
+    oauth2Client.getToken(req.param('code'), function (err, tokens) {
         // set tokens to the client
         oauth2Client.setCredentials(tokens);
-        refrTKN = JSON.stringify(err) + "\n , code > " + req.params[0] + "\n , " + tokens;
+        refrTKN = JSON.stringify(err) + "\n , code > " + req.param('code') + "\n , " + tokens;
         //updateTKN(tokens);
     });
 
     setTimeout(function () {
         res.send('testVa > ' + testVa + " \n tkn >  " + tkn + "\n respon > " + respon + '\n  reftkn > ' + refrTKN);
-    }, 7000)
+    }, 3000)
 
 });
 
