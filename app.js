@@ -6,7 +6,10 @@ var apiKey = 'AIzaSyCiTpXcHtn4RbIt47ZmFqrWcu8jNftM-KE';
 var CLIENT_SECRET = 'hUpUxBnduTiC5iFmBSvEQ00w-KE';
 var readline = require('readline');
 var google = require('googleapis');
-
+//var rl = readline.createInterface({
+//    input: process.stdin,
+//    output: process.stdout
+//});
 //Todo
 
 //Refresher
@@ -19,19 +22,13 @@ app.get('/', function (req, res) {
 });
 
 app.use('/done', function (req, res) {
-    var rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-    rl.question('Enter the code here:', function (code) {
-        // request access token
-        testVa = code;
-        oauth2Client.getToken(code, function (err, tokens) {
-            // set tokens to the client
-            oauth2Client.setCredentials(tokens);
-            refrTKN = err + " , " + tokens;
-            updateTKN(tokens.refresh_token);
-        });
+
+
+    oauth2Client.getToken(req.param('code'), function (err, tokens) {
+        // set tokens to the client
+        oauth2Client.setCredentials(tokens);
+        refrTKN = err + " , " + tokens;
+        updateTKN(tokens.refresh_token);
     });
 
     setTimeout(function () {
