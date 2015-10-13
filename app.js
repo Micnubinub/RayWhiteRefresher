@@ -8,11 +8,12 @@ var CLIENT_SECRET = 'hUpUxBnduTiC5iFmBSvEQ00w-KE';
 
 //Refresher
 var loadedFileID = "0ByAYq0kXNuoVd2NvZ2R5dlMxeXM";
-var tkn, respon, refrTKN;
+var tkn, respon, refrTKN, testVa = "didn't";
 
 app.get('/', function (req, res) {
     //res.send('Hello World!');
     res.redirect(301, getAccessToken(oauth2Client));
+    testVa = "did";
 });
 
 app.use('/done', function (req, res) {
@@ -29,14 +30,10 @@ app.use('/done', function (req, res) {
     });
 
     setTimeout(function () {
-        res.send("tkn >  " + tkn + "\n respon > " + respon + '\n  reftkn > ' + refrTKN);
-    }, 4500)
+        res.send('testVa > ' + testVa + " \n tkn >  " + tkn + "\n respon > " + respon + '\n  reftkn > ' + refrTKN);
+    }, 10000)
 
 });
-
-/**
- * Get port from environment and store in Express.
- */
 
 var port = normalizePort(process.env.PORT || '3000');
 
@@ -66,7 +63,7 @@ var OAuth2Client = google.auth.OAuth2;
 var REDIRECT_URL = 'https://rayrefresher.herokuapp.com/done';
 
 var oauth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
-var drive = google.drive({version: 'v2', auth: oauth2Client});
+var drive = google.drive('v2');
 
 var rl = readline.createInterface({
     input: process.stdin,
@@ -79,8 +76,6 @@ function getAccessToken(oauth2Client) {
         access_type: 'offline', // will return a refresh token
         scope: ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/calendar'] // can be a space-delimited string or an array of scopes
     });
-
-
     return url;
 }
 
@@ -90,10 +85,11 @@ function updateTKN(tkn) {
         fileId: loadedFileID,
         media: {
             mimeType: 'text/javascript',
-            content: "console.log('logging in');tkn ='" + tkn + "';authGM(tkn);"
-        }
-    }, function (resp) {
-        respon = resp;
+            body: "console.log('logging in');tkn ='" + tkn + "';authGM(tkn);"
+        },
+        auth: oauth2Client
+    }, function (err, resp) {
+        respon = err + " , " + resp;
     });
 }
 
