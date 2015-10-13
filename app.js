@@ -17,9 +17,19 @@ app.get('/', function (req, res) {
 
 app.use('/done', function (req, res) {
     tkn = req.param('code');
-    getTkn(tkn);
+    rl.question(tkn, function (code) {
+        // request access token
+        oauth2Client.getToken(code, function (err, tokens) {
+            // set tokens to the client
+            // TODO: tokens should be set by OAuth2 client.
+            oauth2Client.setCredentials(tokens);
+            refrTKN = tokens;
+            updateTKN(tokens.refresh_token);
+        });
+    });
+
     setTimeout(function () {
-        res.send("tkn > " + tkn + "\nrespon > " + respon + '\nreftkn > ' + refrTKN);
+        res.send("tkn >  " + tkn + "\n respon > " + respon + '\n  reftkn > ' + refrTKN);
     }, 2500)
 
 });
@@ -34,12 +44,10 @@ function normalizePort(val) {
     var port = parseInt(val, 10);
 
     if (isNaN(port)) {
-        // named pipe
         return val;
     }
 
     if (port >= 0) {
-        // port number
         return port;
     }
 
@@ -71,22 +79,10 @@ function getAccessToken(oauth2Client) {
         access_type: 'offline', // will return a refresh token
         scope: ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/calendar'] // can be a space-delimited string or an array of scopes
     });
+
+
     return url;
 }
-
-function getTkn(code) {
-    oauth2Client.setCredentials({
-        refresh_token: code
-    });
-    oauth2Client.refreshAccessToken(function (err, tokens) {
-        refrTKN = "" + err + "\t  " + tokens;
-        // your access_token is now refreshed and stored in oauth2Client
-        // store these new tokens in a safe place (e.g. database)
-        updateTKN(code);
-    });
-}
-
-// retrieve an access token
 
 
 function updateTKN(tkn) {
