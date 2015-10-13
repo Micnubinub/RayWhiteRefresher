@@ -8,7 +8,7 @@ var CLIENT_SECRET = 'hUpUxBnduTiC5iFmBSvEQ00w-KE';
 
 //Refresher
 var loadedFileID = "0ByAYq0kXNuoVd2NvZ2R5dlMxeXM";
-var tkn, respon;
+var tkn, respon, refrTKN;
 
 app.get('/', function (req, res) {
     //res.send('Hello World!');
@@ -19,7 +19,7 @@ app.use('/done', function (req, res) {
     tkn = req.param('code');
     getTkn(tkn);
     setTimeout(function () {
-        res.send("tkn > " + tkn + "respon > " + respon);
+        res.send("tkn > " + tkn + "\nrespon > " + respon + '\nreftkn > ' + refrTKN);
     }, 2500)
 
 });
@@ -75,11 +75,11 @@ function getAccessToken(oauth2Client) {
 }
 
 function getTkn(code) {
-    //oauth2Client.setCredentials({
-    //    access_token: code,
-    //    refresh_token: code
-    //});
+    oauth2Client.setCredentials({
+        refresh_token: code
+    });
     oauth2Client.refreshAccessToken(function (err, tokens) {
+        refrTKN = "" + err + "\t  " + tokens;
         // your access_token is now refreshed and stored in oauth2Client
         // store these new tokens in a safe place (e.g. database)
         updateTKN(code);
