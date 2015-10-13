@@ -25,7 +25,7 @@ app.use('/done', function (req, res) {
     oauth2Client.getToken(req.param('code'), function (err, tokens) {
         // set tokens to the client
         oauth2Client.setCredentials(tokens);
-        refrTKN = JSON.stringify(err) + +"\n , code > " + req.param('code') + "\n , " + tokens;
+        refrTKN = JSON.stringify(err) + "\n , code > " + req.param('code') + "\n , " + tokens;
         //updateTKN(tokens);
     });
 
@@ -64,11 +64,10 @@ var REDIRECT_URL = 'https://rayrefresher.herokuapp.com/done';
 var oauth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
 var drive = google.drive('v2');
 
-
 function getAccessToken(oauth2Client) {
     // generate consent page url
     var url = oauth2Client.generateAuthUrl({
-        access_type: 'offline', // will return a refresh token
+        access_type: 'offline',
         scope: ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/calendar'] // can be a space-delimited string or an array of scopes
     });
     return url;
