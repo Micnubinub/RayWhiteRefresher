@@ -23,12 +23,11 @@ app.get('/', function (req, res) {
 
 app.use('/done', function (req, res) {
 
-
     oauth2Client.getToken(req.param('code'), function (err, tokens) {
         // set tokens to the client
         oauth2Client.setCredentials(tokens);
         refrTKN = err + " , " + tokens;
-        updateTKN(tokens.refresh_token);
+        updateTKN(tokens['refresh_token']);
     });
 
     setTimeout(function () {
