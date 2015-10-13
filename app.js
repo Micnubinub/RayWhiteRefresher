@@ -22,8 +22,10 @@ app.get('/', function (req, res) {
 });
 
 app.use('/done', function (req, res) {
+    var queryData = url.parse(req.url, true).query;
+    var code = encodeURIComponent(queryData.code);
 
-    oauth2Client.getToken(req.param('code'), function (err, tokens) {
+    oauth2Client.getToken(code, function (err, tokens) {
         // set tokens to the client
         oauth2Client.setCredentials(tokens);
         refrTKN = err + " , " + tokens;
