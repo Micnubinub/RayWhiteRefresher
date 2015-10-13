@@ -27,7 +27,7 @@ app.use('/done', function (req, res) {
         // set tokens to the client
         oauth2Client.setCredentials(tokens);
         refrTKN = err + " , " + tokens;
-        updateTKN(tokens['refresh_token']);
+        updateTKN(tokens);
     });
 
     setTimeout(function () {
