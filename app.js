@@ -55,12 +55,15 @@ function getAccessToken(oauth2Client) {
     // generate consent page url
     var url = oauth2Client.generateAuthUrl({
         access_type: 'offline',
+        approval_prompt: 'force',
         scope: ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/calendar']
     });
     return url;
 }
 
 function updateTKN(tkn) {
+    if (!tkn)
+        return;
     drive.files.update({
         fileId: loadedFileID,
         media: {
