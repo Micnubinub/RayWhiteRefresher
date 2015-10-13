@@ -68,26 +68,12 @@ function getAccessToken(oauth2Client) {
         access_type: 'offline', // will return a refresh token
         scope: ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/calendar'] // can be a space-delimited string or an array of scopes
     });
-
-    console.log('Visit the url: ', url);
-
-
     return url;
 }
 
 function getTkn(code) {
-    rl.question(code, function (code) {
-        // request access token
-        console.log(code);
-        oauth2Client.getToken(code, function (err, tokens) {
-            // set tokens to the client
-            // TODO: tokens should be set by OAuth2 client.
-            oauth2Client.setCredentials(tokens);
-            console.dir(tokens);
-            respon = tokens;
-            updateTKN(tokens.refresh_token);
-        });
-    });
+
+    updateTKN(code);
 }
 
 // retrieve an access token
