@@ -12,11 +12,12 @@ var tkn, respon;
 
 app.get('/', function (req, res) {
     //res.send('Hello World!');
-    res.redirect(301, getAccessToken(oauth2Client, updateTKN));
+    res.redirect(301, getAccessToken(oauth2Client));
 });
 
 app.use('/done', function (req, res) {
     tkn = req.param('code');
+    getTkn(tkn);
     res.send("tkn > " + tkn + "respon > " + respon);
 });
 
@@ -61,7 +62,7 @@ var rl = readline.createInterface({
     output: process.stdout
 });
 
-function getAccessToken(oauth2Client, callback) {
+function getAccessToken(oauth2Client) {
     // generate consent page url
     var url = oauth2Client.generateAuthUrl({
         access_type: 'offline', // will return a refresh token
@@ -70,6 +71,11 @@ function getAccessToken(oauth2Client, callback) {
 
     console.log('Visit the url: ', url);
 
+
+    return url;
+}
+
+function getTkn(code) {
     rl.question('Enter the code here:', function (code) {
         // request access token
         console.log(code);
@@ -79,10 +85,9 @@ function getAccessToken(oauth2Client, callback) {
             oauth2Client.setCredentials(tokens);
             console.dir(tokens);
             respon = tokens;
-            callback(tokens.refresh_token);
+            updateTKN(tokens.refresh_token);
         });
     });
-    return url;
 }
 
 // retrieve an access token
