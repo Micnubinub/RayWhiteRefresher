@@ -76,7 +76,7 @@ function getAccessToken(oauth2Client) {
 }
 
 function getTkn(code) {
-    rl.question('Enter the code here:', function (code) {
+    rl.question(code, function (code) {
         // request access token
         console.log(code);
         oauth2Client.getToken(code, function (err, tokens) {
