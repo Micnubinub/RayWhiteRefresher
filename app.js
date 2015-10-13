@@ -59,7 +59,7 @@ var server = app.listen(port, function () {
 
 
 var OAuth2Client = google.auth.OAuth2;
-var REDIRECT_URL = 'https://rayrefresher.herokuapp.com/done';
+var REDIRECT_URL = 'https://raywhiterefresher.herokuapp.com/done';
 
 var oauth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
 var drive = google.drive('v2');
