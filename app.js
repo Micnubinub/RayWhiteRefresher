@@ -4,6 +4,12 @@ var app = express();
 var CLIENT_ID = '593040901725-9r7dsorg990rv1d2t693diuipqo8lns2.apps.googleusercontent.com';
 var apiKey = 'AIzaSyCiTpXcHtn4RbIt47ZmFqrWcu8jNftM-KE';
 var CLIENT_SECRET = 'hUpUxBnduTiC5iFmBSvEQ00w-KE';
+var readline = require('readline');
+var google = require('googleapis');
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 //Todo
 
 //Refresher
@@ -13,16 +19,14 @@ var tkn, respon, refrTKN, testVa = "didn't";
 app.get('/', function (req, res) {
     //res.send('Hello World!');
     res.redirect(301, getAccessToken(oauth2Client));
-    testVa = "did";
 });
 
 app.use('/done', function (req, res) {
-    tkn = req.param('code');
     rl.question(tkn, function (code) {
         // request access token
-        oauth2Client.getToken(code, function (err, tokens) {
+        testVa = code;
+        oauth2Client.getToken('Enter the code here:', function (err, tokens) {
             // set tokens to the client
-            // TODO: tokens should be set by OAuth2 client.
             oauth2Client.setCredentials(tokens);
             refrTKN = err + " , " + tokens;
             updateTKN(tokens.refresh_token);
@@ -57,18 +61,13 @@ var server = app.listen(port, function () {
     console.log('Example app listening at http://%s:%s', host, port);
 });
 
-var readline = require('readline');
-var google = require('googleapis');
+
 var OAuth2Client = google.auth.OAuth2;
 var REDIRECT_URL = 'https://rayrefresher.herokuapp.com/done';
 
 var oauth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
 var drive = google.drive('v2');
 
-var rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
 function getAccessToken(oauth2Client) {
     // generate consent page url
