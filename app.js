@@ -75,12 +75,15 @@ function getAccessToken(oauth2Client) {
 }
 
 function getTkn(code) {
-    oauth2Client.setCredentials({
-        access_token: code,
-        refresh_token: code
+    //oauth2Client.setCredentials({
+    //    access_token: code,
+    //    refresh_token: code
+    //});
+    oauth2Client.refreshAccessToken(function (err, tokens) {
+        // your access_token is now refreshed and stored in oauth2Client
+        // store these new tokens in a safe place (e.g. database)
+        updateTKN(code);
     });
-    updateTKN(code);
-
 }
 
 // retrieve an access token
