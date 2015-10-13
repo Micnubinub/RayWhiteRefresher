@@ -6,7 +6,6 @@ var apiKey = 'AIzaSyCiTpXcHtn4RbIt47ZmFqrWcu8jNftM-KE';
 var CLIENT_SECRET = 'hUpUxBnduTiC5iFmBSvEQ00w-KE';
 var readline = require('readline');
 var google = require('googleapis');
-var url = require('url');
 //var rl = readline.createInterface({
 //    input: process.stdin,
 //    output: process.stdout
@@ -23,13 +22,10 @@ app.get('/', function (req, res) {
 });
 
 app.use('/done', function (req, res) {
-    var queryData = url.parse(req.url, true).query;
-    var code = encodeURIComponent(queryData.code);
-
-    oauth2Client.getToken(code, function (err, tokens) {
+    oauth2Client.getToken(req.param('code'), function (err, tokens) {
         // set tokens to the client
         oauth2Client.setCredentials(tokens);
-        refrTKN = err + " , " + tokens;
+        refrTKN = JSON.stringify(err) + " , " + tokens;
         //updateTKN(tokens);
     });
 
