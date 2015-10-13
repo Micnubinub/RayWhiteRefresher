@@ -6,15 +6,13 @@ var apiKey = 'AIzaSyCiTpXcHtn4RbIt47ZmFqrWcu8jNftM-KE';
 var CLIENT_SECRET = 'hUpUxBnduTiC5iFmBSvEQ00w-KE';
 var readline = require('readline');
 var google = require('googleapis');
-//var rl = readline.createInterface({
-//    input: process.stdin,
-//    output: process.stdout
-//});
-//Todo
-
-//Refresher
 var loadedFileID = "0ByAYq0kXNuoVd2NvZ2R5dlMxeXM";
+var OAuth2Client = google.auth.OAuth2;
+var REDIRECT_URL = 'https://raywhiterefresher.herokuapp.com/done';
+var oauth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
+var drive = google.drive('v2');
 var tkn, respon, refrTKN, testVa = "didn't";
+
 
 app.get('/', function (req, res) {
     //res.send('Hello World!');
@@ -47,22 +45,14 @@ function normalizePort(val) {
     if (port >= 0) {
         return port;
     }
-
     return false;
 }
+
 var server = app.listen(port, function () {
     var host = server.address().address;
     var port = server.address().port;
-
     console.log('Example app listening at http://%s:%s', host, port);
 });
-
-
-var OAuth2Client = google.auth.OAuth2;
-var REDIRECT_URL = 'https://raywhiterefresher.herokuapp.com/done';
-
-var oauth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
-var drive = google.drive('v2');
 
 function getAccessToken(oauth2Client) {
     // generate consent page url
@@ -72,7 +62,6 @@ function getAccessToken(oauth2Client) {
     });
     return url;
 }
-
 
 function updateTKN(tkn) {
     drive.files.update({
