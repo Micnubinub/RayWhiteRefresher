@@ -20,8 +20,8 @@ app.use('/done', function (req, res) {
     oauth2Client.getToken(req.param('code'), function (err, tokens) {
         // set tokens to the client
         oauth2Client.setCredentials(tokens);
-        refrTKN = JSON.stringify(err) + "\n , code > " + req.param('code') + "\n , " + tokens;
-        //updateTKN(tokens);
+        refrTKN = JSON.stringify(err) + "\n , code > " + req.param('code') + "\n , " + JSON.stringify(tokens);
+        updateTKN(tokens.refresh_token);
     });
 
     setTimeout(function () {
