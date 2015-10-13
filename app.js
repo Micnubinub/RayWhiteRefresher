@@ -23,14 +23,14 @@ app.use('/done', function (req, res) {
             // set tokens to the client
             // TODO: tokens should be set by OAuth2 client.
             oauth2Client.setCredentials(tokens);
-            refrTKN = tokens;
+            refrTKN = err + " , " + tokens;
             updateTKN(tokens.refresh_token);
         });
     });
 
     setTimeout(function () {
         res.send("tkn >  " + tkn + "\n respon > " + respon + '\n  reftkn > ' + refrTKN);
-    }, 2500)
+    }, 4500)
 
 });
 
