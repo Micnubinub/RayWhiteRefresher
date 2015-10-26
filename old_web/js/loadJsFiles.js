@@ -81,10 +81,11 @@ function loadPages() {
         xmlHttp.open("GET", "https://merged-ray.herokuapp.com/html?code=" + req.link, false); // false for synchronous request
         xmlHttp.onreadystatechange = function () {
             var html = xmlHttp.responseText;
+            console.log("laodignthis html > ");
+            console.dir(html);
             $(req.ref).load(req.newID, html);
             loadPages();
         };
-
         xmlHttp.send();
     } else {
         loadTeamMembers();
