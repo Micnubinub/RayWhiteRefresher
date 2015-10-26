@@ -179,39 +179,6 @@
 
 </div>
 
-<script type="text/javascript">
-    window.open('#loginDialog', '_self');
-    disableScroll();
-    disableScrollBar();
-
-    try {
-        document.querySelector('#password').focus();
-    } catch (e) {
-
-    }
-    document.querySelector('#password').addEventListener('keypress', enterPressed);
-
-    function enterPressed(e) {
-        var key = e.which || e.keyCode;
-        if (key === 13) {
-            validatePassword();
-        }
-    }
-
-    function validatePassword() {
-        var text = document.getElementById('password').value;
-        if (text === "JCUTrunk!") {
-            document.querySelector('#password').removeEventListener('keypress', enterPressed);
-            closeDialog();
-            enableScroll();
-            enableScrollBar();
-        } else {
-            document.getElementById('loginWarningText').style.visibility = 'visible';
-            document.getElementById('password').value = '';
-        }
-    }
-</script>
-
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
@@ -242,9 +209,10 @@
             console.dir(xmlHttp.responseText);
             $("#development_div").load("#development", xmlHttp.responseText);
         };
+
         xmlHttp.send();
 
-        $("#development_div").load("ext/dev.html #development");
+//        $("#development_div").load("ext/dev.html #development");
         $("#welcome_div").load("ext/welc.html #welcome");
         $("#projects_div").load("ext/projects.html #projects");
         $("#hr_div").load("ext/hr.html #hr");
