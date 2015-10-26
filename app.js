@@ -47,6 +47,37 @@ app.use('/file', function (req, res) {
     }
 });
 
+app.use('/font', function (req, res) {
+
+    fs.readFile(getFont(req.param('code')), function (err, data) {
+        res.writeHead(200, {'Content-Type': '*/*', 'Content-Length': data.length});
+        res.write(data);
+        res.end();
+    });
+
+});
+
+function getFont(type) {
+    switch (type.toLowerCase()) {
+        case 'oft':
+            return 'old_web/fontawesome/font/FontAwesome.otf';
+            break;
+        case 'eot':
+            return 'old_web/fontawesome/font/fontawesome-webfont.eot';
+            break;
+        case 'svg':
+            return 'old_web/fontawesome/font/fontawesome-webfont.svg';
+            break;
+        case 'ttf':
+            return 'old_web/fontawesome/font/fontawesome-webfont.ttf';
+            break;
+        case 'woff':
+            return 'old_web/fontawesome/font/fontawesome-webfont.woff';
+            break;
+    }
+}
+
+
 app.use('/html', function (req, res) {
     if (req.param('code')) {
         fs.readFile(req.param('code'), function (err, data) {
