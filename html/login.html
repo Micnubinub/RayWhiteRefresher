@@ -16,6 +16,7 @@
     var login_text = document.getElementById('login_text');
     function login() {
         login_text.innerHTML = "Logging in...";
+        request(document.getElementById('password').value)
     }
 
     function request(pass) {
