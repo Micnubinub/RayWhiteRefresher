@@ -52,6 +52,7 @@ function loadJSFiles() {
 }
 
 function loadJSFile(req) {
+    console.dir(req);
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", "https://merged-ray.herokuapp.com/file?code=" + req, false); // false for synchronous request
     xmlHttp.onreadystatechange = function () {
@@ -94,6 +95,7 @@ function loadPages() {
 
 
 function loadCSSFile(req) {
+    console.dir(req);
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", "https://merged-ray.herokuapp.com/file?code=" + req, false); // false for synchronous request
     xmlHttp.onreadystatechange = function () {
