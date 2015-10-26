@@ -5,7 +5,6 @@
 var jsFiles = ["old_web/js/modernizr.js",
     "old_web/js/upload.js",
     "old_web/js/load_team_members.js",
-    "old_web/https://maps.googleapis.com/maps/api/js?v=3.exp",
     "old_web/bootstrap/js/bootstrap.min.js",
     "old_web/owl-carousel/owl.carousel.min.js",
     "old_web/masterslider/masterslider.min.js",
@@ -52,11 +51,11 @@ function loadJSFile(req) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", "https://merged-ray.herokuapp.com/file?code=" + req, false); // false for synchronous request
     xmlHttp.onreadystatechange = function () {
-        var file = xmlHttp.responseText;
-        var fileref = document.createElement('script');
-        fileref.setAttribute("type", "text/javascript");
-        fileref.setAttribute("innerHTML", file);
-        document.getElementsByTagName("head")[0].appendChild(fileref);
+        eval(xmlHttp.responseText);
+        //var fileref = document.createElement('script');
+        //fileref.setAttribute("type", "text/javascript");
+        //fileref.setAttribute("innerHTML", file);
+        //document.getElementsByTagName("head")[0].appendChild(fileref);
         loadCSSFiles();
     };
 
