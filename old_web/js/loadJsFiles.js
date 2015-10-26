@@ -1,7 +1,3 @@
-/**
- * Created by linde on 26-Oct-15.
- */
-
 var jsFiles = [
     "old_web/js/underscore-min.js",
     "old_web/js/upload.js",
@@ -95,7 +91,6 @@ function loadPages() {
         loadTeamMembers();
     }
 }
-
 
 function loadCSSFile(req) {
     console.dir(req);

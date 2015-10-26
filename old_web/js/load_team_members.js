@@ -10,7 +10,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(0);
         },
-        image: "images/team/ashleyClearThumbBW.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/ashleyClearThumbBW.png"
     },
     {
         id: 1,
@@ -22,7 +22,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(1);
         },
-        image: "images/team/benwhiteClearThumb.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/benwhiteClearThumb.png"
     }, {
         id: 2,
         name: "Justin Watts",
@@ -33,7 +33,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(2);
         },
-        image: "images/team/justinwattsClearThumbBW.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/justinwattsClearThumbBW.png"
     }, {
         id: 3,
         name: "Nava Mahdavi",
@@ -44,7 +44,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(3);
         },
-        image: "images/team/navaClearThumbBW.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/navaClearThumbBW.png"
     }, {
         id: 4,
         name: "Tim Kotsiakos",
@@ -55,7 +55,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(4);
         },
-        image: "images/team/timkotsiakosClearThumbBW.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/timkotsiakosClearThumbBW.png"
     }, {
         id: 5,
         name: "Pat Mifsud",
@@ -66,7 +66,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(5);
         },
-        image: "images/team/patClearThumbBW.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/patClearThumbBW.png"
     }, {
         id: 6,
         name: "Evgeny Dudin",
@@ -77,7 +77,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(6);
         },
-        image: "images/team/evgenyClearThumbBW.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/evgenyClearThumbBW.png"
     }, {
         id: 7,
         name: "Yun Zhi Lin",
@@ -88,7 +88,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(7);
         },
-        image: "images/team/yunClearThumbBW.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/yunClearThumbBW.png"
     }, {
         id: 8,
         name: "Thomas Wolle",
@@ -99,7 +99,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(8);
         },
-        image: "images/team/thomasClearThumbBW.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/thomasClearThumbBW.png"
     }, {
         id: 9,
         name: "Daniel Theodosius",
@@ -110,7 +110,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(9);
         },
-        image: "images/team/danielClearThumbBW.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/danielClearThumbBW.png"
     }, {
         id: 10,
         name: "Callum Gardner",
@@ -121,7 +121,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(10);
         },
-        image: "images/team/callumClearThumbBW.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/callumClearThumbBW.png"
     }, {
         id: 11,
         name: "Chanthu Shamsu",
@@ -132,7 +132,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(11);
         },
-        image: "images/team/chanthuClearThumbBW.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/chanthuClearThumbBW.png"
     }, {
         id: 12,
         name: "Lee Zhao",
@@ -142,7 +142,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(12);
         },
-        image: "images/team/placeholderProfile.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/placeholderProfile.png"
     }, {
         id: 13,
         name: "Denis Strygin",
@@ -150,7 +150,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(13);
         },
-        image: "images/team/placeholderProfile.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/placeholderProfile.png"
     }, {
         id: 14,
         name: "Erica Rosalina",
@@ -158,7 +158,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(14);
         },
-        image: "images/team/placeholderProfile.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/placeholderProfile.png"
     },
     {
         id: 15,
@@ -170,7 +170,7 @@ var team_members = [
         onClick: function (evt) {
             showModal(15);
         },
-        image: "images/team/sherryClearThumbBW.png"
+        image: "https://merged-ray.herokuapp.com/image?code=team/sherryClearThumbBW.png"
     }
 ];
 

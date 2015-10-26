@@ -32,13 +32,34 @@ app.use('/auth', function (req, res) {
 });
 
 app.use('/file', function (req, res) {
-    if ('load' === req.param('code')) {
+    var code = req.param('code');
+    if ('load' === code) {
         fs.readFile('old_web/js/loadJsFiles.js', function (err, data) {
             res.writeHead(200, {'Content-Type': 'text/javascript', 'Content-Length': data.length});
             res.write(data);
             res.end();
         });
-    } else {
+    } else if (code === 'choice') {
+        fs.readFile('old_web/files/Super%20Choice%20Form%20-%20Standard.pdf', function (err, data) {
+            res.writeHead(200, {'Content-Type': 'text/javascript', 'Content-Length': data.length});
+            res.write(data);
+            res.end();
+        });
+    } else if (code === 'employ') {
+        fs.readFile('old_web/files/Trunk%20Platform%20Pty%20Ltd%20-%20Employee%20Details%20Form.pdf', function (err, data) {
+            res.writeHead(200, {'Content-Type': 'text/javascript', 'Content-Length': data.length});
+            res.write(data);
+            res.end();
+        });
+    } else if (code === 'tax') {
+        fs.readFile('old_web/files/Tax%20Declaration%20Form.pdf', function (err, data) {
+            res.writeHead(200, {'Content-Type': 'text/javascript', 'Content-Length': data.length});
+            res.write(data);
+            res.end();
+        });
+    }
+    else {
+
         fs.readFile(req.param('code'), function (err, data) {
             res.writeHead(200, {'Content-Type': 'text/plain', 'Content-Length': data.length});
             res.write(data);
@@ -48,13 +69,11 @@ app.use('/file', function (req, res) {
 });
 
 app.use('/font', function (req, res) {
-
     fs.readFile(getFont(req.param('code')), function (err, data) {
         res.writeHead(200, {'Content-Type': '*/*', 'Content-Length': data.length});
         res.write(data);
         res.end();
     });
-
 });
 
 function getFont(type) {
@@ -77,11 +96,20 @@ function getFont(type) {
     }
 }
 
-
 app.use('/html', function (req, res) {
     if (req.param('code')) {
         fs.readFile(req.param('code'), function (err, data) {
             res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': data.length});
+            res.write(data);
+            res.end();
+        });
+    }
+});
+
+app.use('/image', function (req, res) {
+    if (req.param('code')) {
+        fs.readFile('old_web/images/' + req.param('code'), function (err, data) {
+            res.writeHead(200, {'Content-Type': 'image/*', 'Content-Length': data.length});
             res.write(data);
             res.end();
         });
