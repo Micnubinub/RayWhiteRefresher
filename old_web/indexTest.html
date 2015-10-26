@@ -1,0 +1,78 @@
+<html>
+<head>
+    <script src="https://apis.google.com/js/platform.js" async defer>{
+        'explicit'
+    }
+    </script>
+
+    <script type="text/javascript" src="js/test/upload_test.js"></script>
+    <script type="text/javascript" src="js/test/upload.js"></script>
+    <script type="text/javascript" src="js/test/drop_zone.js"></script>
+    <script type="text/javascript">
+        var CLIENT_ID = '593040901725-9r7dsorg990rv1d2t693diuipqo8lns2.apps.googleusercontent.com';
+        var SCOPES = [
+            'https://www.googleapis.com/auth/drive.file',
+            'email',
+            'profile',
+            // Add other scopes needed by your application.
+        ];
+
+        /**
+         * Called when the client library is loaded.
+         */
+        function handleClientLoad() {
+            checkAuth();
+        }
+
+        /**
+         * Check if the current user has authorized the application.
+         */
+        function checkAuth() {
+            console.log("<ch></ch>eckAuth");
+            gapi.auth.authorize(
+                    {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': true},
+                    handleAuthResult);
+        }
+
+        /**
+         * Called when authorization server replies.
+         *
+         * @param {Object} authResult Authorization result.
+         */
+        function handleAuthResult(authResult) {
+            console.log("handleAuth");
+            if (authResult) {
+                // Access token has been successfully retrieved, requests can be sent to the API
+                accessToken = authResult.access_token;
+                uploadR();
+            } else {
+                // No access token could be retrieved, force the authorization flow.
+                gapi.auth.authorize(
+                        {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': false},
+                        handleAuthResult);
+            }
+        }
+    </script>
+    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+
+</head>
+<body>
+<!-- YOUR CONTENT -->
+
+<div id="container">
+    <div class="g-savetodrive"
+         data-src="images/logoHori.png"
+         data-filename="LogoHori.jpg"
+         data-sitename="TestName">
+        <div>
+        </div>
+    </div>
+
+    <div style="width: 500px; height: 300px; background: #00bbff;">
+        <form action="/file-upload"
+              class="dropzone"
+              id="my-awesome-dropzone" style="width: 500px; height: 300px; background: #00bbff;"></form>
+    </div>
+</div>
+</body>
+</html>

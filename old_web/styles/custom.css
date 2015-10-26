@@ -1,0 +1,264 @@
+#menu {
+    position: fixed;
+    height: auto;
+
+    z-index: 9999;
+    display: none;
+    margin-left: 25%;
+    margin-right: 25%;
+    white-space: nowrap;
+
+}
+
+#menu .nav {
+    background-color: rgba(255, 255, 255, 0.87);
+    color: #FFFFFF;
+    border: 2px solid #493e90;
+    border-top: none;
+    -webkit-border-radius: 0px 0px 50px 50px;
+    -moz-border-radius: 0px 0px 50px 50px;
+    border-radius: 0px 0px 50px 50px;
+}
+
+@media (max-width: 1220px) {
+    .nav > li > a {
+        padding: 8px 3px;
+    }
+
+    .nav > li > img {
+        padding: 8px 3px;
+    }
+}
+
+@media (max-width: 1180px) {
+    .nav > li > a {
+        letter-spacing: -0.3px;
+    }
+
+    .nav > li > img {
+        height: auto
+    }
+}
+
+@media (max-width: 960px) {
+    .nav > li > img {
+        height: auto;
+    }
+
+    .nav > li > a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 830px) {
+    .nav > li > a {
+        font-size: 11px;
+        padding: 0 3px;
+    }
+
+    .nav > li > img {
+        height: 50px;
+    }
+}
+
+img#main-logo2 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    max-height: 80px;
+}
+
+#menu li a {
+    display: inline;
+    font-weight: bold;
+}
+
+#menu a {
+    display: inline;
+    color: rgba(73, 62, 144, 1);
+}
+
+#menu a:Hover {
+    display: inline;
+    color: rgb(45, 188, 181);
+    text-decoration: none;
+    background-color: rgba(73, 62, 144, 1);
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+
+}
+
+#menu a:active {
+    display: inline;
+    color: rgb(45, 188, 181);
+    background-color: rgba(73, 62, 144, 1);
+}
+
+#aboutUs {
+    background-color: #493e90;
+}
+
+#aboutUs h1 {
+    color: #FFFFFF;
+}
+
+.header-right {
+    text-align: right;
+}
+
+.header-centre {
+    text-align: center;
+}
+
+#welcome hr {
+    margin-right: 0;
+    width: 600px;
+    border-top: 2px solid #493e90;
+    background-color: transparent;
+
+}
+
+#aboutUs hr {
+    margin: 0px;
+    width: 380px;
+    border-top: 2px solid #ffffff;
+    background-color: transparent;
+}
+
+#projects h4 {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+#projects h3 a:hover {
+    color: rgb(45, 188, 181);
+    Text-decoration: none;
+    border-radius: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#projects hr {
+    border-top: 2px solid #493e90;
+    width: 550px;
+}
+
+#projects h4 {
+    color: rgba(45, 188, 181, 1);
+    margin-bottom: 20px;
+}
+
+#team hr {
+    margin: 0px;
+    width: 420px;
+    border-top: 2px solid #493e90;
+    background-color: transparent;
+}
+
+#hr {
+    background-color: #493e90;
+}
+
+#hr h1 {
+    padding-top: 20px;
+    color: rgba(45, 188, 181, 1);
+}
+
+#hr hr {
+    margin: 0px;
+    width: 520px;
+    border-top: 2px solid #1fd6ff;
+    background-color: transparent;
+}
+
+#hr h2 {
+    text-align: center;
+    color: rgba(45, 188, 181, 1);
+}
+
+#hr .form {
+    background-color: rgba(37, 34, 73, 0.89);
+    color: rgba(31, 214, 255, 0.89);
+    text-align: center;
+    border-radius: 20px;
+    padding-bottom: 40px;
+    padding-top: 1px;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#hr .formButton:hover, a:hover {
+    text-decoration: none;
+    background-color: #493e90;
+    color: #1fd6ff;
+    cursor: pointer;
+}
+
+#hr .formLarge {
+    background-color: rgba(37, 34, 73, 0.89);
+    color: rgba(31, 214, 255, 0.89);
+    text-align: center;
+    border-radius: 20px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+#hr .formButton {
+    background-color: rgba(31, 214, 255, 0.89);
+    color: rgba(37, 34, 73, 0.89);
+    border-radius: 10px;
+    margin-bottom: -12px;
+    font-weight: bold;
+}
+
+#development {
+    background-color: #F5F5F5;
+}
+
+#development h3 {
+    text-align: center;
+    color: rgba(45, 188, 181, 1);
+}
+
+#development hr {
+    margin: 0px;
+    width: 380px;
+    border-top: 2px solid #493e90;
+    background-color: transparent;
+}
+
+#development .accountLink {
+    background-color: rgba(37, 34, 73, 0.89);
+    color: rgba(31, 214, 255, 0.89);
+    text-align: center;
+    border-radius: 20px;
+    padding-bottom: 40px;
+    padding-top: 1px;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#development .connectButton {
+    background-color: rgba(31, 214, 255, 0.89);
+    color: rgba(37, 34, 73, 0.89);
+    border-radius: 10px;
+    margin-bottom: -12px;
+    font-weight: bold;
+}
+
+#development .connectButton:hover {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #1fd6ff;
+    cursor: pointer;
+}
+
+#footer {
+    background-color: #F5F5F5;
+}

@@ -1,0 +1,114 @@
+.loginModalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.loginModalDialog:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.loginModalDialog > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+}
+
+#loginContainer {
+    text-align: center;
+}
+
+#avatarContainer {
+    text-align: center;
+}
+
+#formSubmissionDialogContainer {
+    text-align: center;
+}
+
+#loginConfirm {
+    display: inline-block;
+}
+
+#avatarConfirm {
+    display: inline-block;
+}
+
+#loginWarningText {
+    visibility: collapse;
+    margin: 4px;
+    display: inline-block;
+    color: #b92c28;
+}
+
+#avatarText {
+    margin: 4px;
+    display: inline-block;
+    color: rgba(73, 62, 144, 1);
+}
+
+#password {
+    display: inline-block;
+    margin: 4px;
+    padding: 4px;
+    background: #fff;
+}
+
+#modalDialogIcon {
+    display: inline-block;
+    margin: 4px;
+    width: 40%;
+    height: 40%;
+}
+
+#avatarDialogIcon {
+    display: inline-block;
+    margin-bottom: 10px;
+    max-width: 200px;
+    max-height: 200px;
+    margin-top: -20px;
+}
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.72);
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalDialog:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modalDialog > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+}

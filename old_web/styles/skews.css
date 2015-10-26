@@ -1,0 +1,168 @@
+.skew-bottom-left,
+.skew-bottom-right,
+.skew-top-left,
+.skew-top-right {
+    position: absolute;
+    left: -10%;
+    width: 120%;
+    height: 170px;
+    z-index: 20;
+    background-color: #FFF;
+    content: '';
+    /*overflow: hidden;*/
+}
+
+.skew-bottom-left.skew-edged:after,
+.skew-bottom-right.skew-edged:after,
+.skew-top-left.skew-edged:after,
+.skew-top-right.skew-edged:after,
+.skew-bottom-left.skew-edged-small:after,
+.skew-bottom-right.skew-edged-small:after,
+.skew-top-left.skew-edged-small:after,
+.skew-top-right.skew-edged-small:after {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    content: '';
+    background-color: #493e90;
+}
+
+.skew-bottom-left,
+.skew-bottom-right {
+    bottom: -85px;
+}
+
+.skew-bottom-left.skew-small,
+.skew-bottom-right.skew-small {
+    bottom: -135px;
+}
+
+.skew-bottom-left.skew-tiny,
+.skew-bottom-right.skew-tiny {
+    bottom: -185px;
+}
+
+.skew-bottom-left.skew-edged:after,
+.skew-bottom-right.skew-edged:after {
+    top: -275px;
+}
+
+.skew-bottom-left.skew-edged-small:after,
+.skew-bottom-right.skew-edged-small:after {
+    top: -310px;
+}
+
+.skew-bottom-left,
+.skew-top-left {
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+}
+
+.skew-bottom-left.skew-edged:after,
+.skew-top-left.skew-edged:after,
+.skew-bottom-left.skew-edged-small:after,
+.skew-top-left.skew-edged-small:after {
+    left: 0;
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+}
+
+.skew-bottom-right,
+.skew-top-right {
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+    transform: rotate(5deg);
+}
+
+.skew-bottom-right.skew-edged:after,
+.skew-top-right.skew-edged:after,
+.skew-bottom-right.skew-edged-small:after,
+.skew-top-right.skew-edged-small:after {
+    right: 0;
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    -ms-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+}
+
+.skew-color-1,
+.skew-edged.skew-edge-color-3:after,
+.skew-edged-small.skew-edge-color-3:after {
+    background-color: #2dbcb5;
+}
+
+.skew-color-2,
+.skew-edged.skew-edge-color-2:after,
+.skew-edged-small.skew-edge-color-2:after {
+    background-color: #F5F5F5;
+}
+
+.skew-color-3,
+.skew-edged.skew-edge-color-3:after,
+.skew-edged-small.skew-edge-color-3:after {
+    background-color: #493e90;
+}
+
+.skew-container {
+    position: relative;
+    height: 130px;
+}
+
+.skew-line {
+    position: absolute;
+    overflow: hidden;
+    height: 170px;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.skew-line.bottom-top {
+    top: auto;
+    bottom: 0;
+}
+
+.skew-top-left,
+.skew-top-right {
+    top: -85px;
+}
+
+.skew-top-left.skew-small,
+.skew-top-right.skew-small {
+    top: -135px;
+}
+
+.skew-top-left.skew-tiny,
+.skew-top-right.skew-tiny {
+    top: -185px;
+}
+
+.skew-top-left.skew-edged:after,
+.skew-top-right.skew-edged:after {
+    bottom: -275px;
+}
+
+.skew-top-left.skew-edged-small:after,
+.skew-top-right.skew-edged-small:after {
+    bottom: -310px;
+}
+
+.skew-top-left-1 {
+    position: absolute;
+    left: -10%;
+    width: 120%;
+    height: 170px;
+    z-index: 20;
+    background-color: #002a80;
+    content: '';
+    overflow: hidden;
+}

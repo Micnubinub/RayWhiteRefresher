@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link rel="icon" href="images/icon.png" type="image/png">
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="owl-carousel/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="masterslider/style/masterslider.css" type="text/css">
+    <link rel="stylesheet" href="masterslider/skins/light-6/style.css" type="text/css">
+    <link rel="stylesheet" href="styles/main.css" type="text/css">
+    <link rel="stylesheet" href="styles/custom.css" type="text/css">
+    <link rel="stylesheet" href="styles/skews.css" type="text/css">
+    <link rel="stylesheet" href="styles/modal.css" type="text/css">
+    <link rel="stylesheet" href="styles/login.css" type="text/css">
+    <link rel="stylesheet" href="font-awesome/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="styles/sweetalert.css" type="text/css">
+
+    <script type="text/javascript" src="js/modernizr.js"></script>
+    <script type="text/javascript" src="js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="js/upload.js"></script>
+    <script type="text/javascript" src="js/load_team_members.js"></script>
+    <script type="text/javascript" src="js/gmail.js"></script>
+    <script type="text/javascript" src="js/accountManager.js"></script>
+    <script type="text/javascript" src="js/underscore-min.js"></script>
+    <script type="text/javascript" src="js/github.js"></script>
+
+    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+
+    <title>Trunk R&D Onboarding</title>
+</head>
+
+<body>
+<div id="all">
+    <div id="content">
+        <div id="menu">
+            <!--<img id="main-logo2" alt="logo" src="images/headerLogo.png">-->
+            <ul class="nav">
+                <!--  Add require site page navigation -->
+                <li><a href="#intro"> <i class="fa fa-home"> </i>Home</a></li>
+                <li><a href="#welcome-start"> <i class="fa fa-heart"> </i>Welcome</a></li>
+                <li><a href="#projects_div"> <i class="fa fa-pencil"> </i>Projects</a></li>
+                <li><img id="main-logo2" alt="logo" src="images/headerLogo.png"></li>
+                <li><a href="#team_div"> <i class="fa fa-group"></i> Team</a></li>
+                <li><a href="#hr_div"> <i class="fa fa-calendar-empty"></i> HR</a></li>
+                <li><a href="#development_div"> <i class="fa fa-book"></i> Development</a></li>
+            </ul>
+        </div>
+
+        <div id="intro">
+            <div class="head-container">
+
+                <div class="ms-fullscreen-template" id="slider1-wrapper">
+                    <div class="master-slider ms-skin-light-6 ms-skin-round" id="masterslider">
+                        <div class="ms-slide">
+                            <img src="images/teamTrunkTeal.png" data-src="images/teamTrunkTeal.png"
+                                 alt="header img">
+
+                            <div class="ms-layer">
+                                <div class="ms-layer-content">
+                                    <h1>Welcome to </h1>
+
+                                    <h2>Trunk R&D</h2>
+                                    <hr>
+                                    <p>You are hired to be a future Leader!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ms-slide">
+                            <img src="images/teamTrunkTeal.png" data-src="images/teamTrunkTeal.png"
+                                 alt="header img">
+
+                            <div class="ms-layer">
+                                <div class="ms-layer-content">
+                                    <h1>Embrace</h1>
+
+                                    <h2>Minimal Management</h2>
+                                    <hr>
+                                    <p>You are joining a self-organising team with a minimal management hierarchy.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skew-line bottom-top">
+                            <section id="welcome-start">
+                                <div class="skew-bottom-left skew-color-3 skew-small"></div>
+                                <div class="skew-bottom-right skew-color-2"></div>
+                            </section>
+                        </div>
+                    </div>
+                    <!-- .master-slider -->
+                </div>
+                <!-- .ms-fullscreen-template -->
+            </div>
+            <!-- .head-container -->
+        </div>
+        <!-- #head -->
+
+        <div id="welcome_div"></div>
+
+        <div id="projects_div">
+        </div>
+
+        <div id="team_div"></div>
+
+        <div id="hr_div">
+
+        </div>
+
+        <div id="development_div"></div>
+
+        <footer id="footer">
+            <div class="skew-container ">
+                <div class="skew-line">
+                    <div class="skew-top-right skew-color-2">
+                        <a class="scroll-to" href="#intro">
+                            <div class="scroll-top-button"><i class="fa-arrow-up"></i></div>
+                        </a>
+                    </div>
+                    <div class="skew-bottom-right skew-color-3"></div>
+                </div>
+            </div>
+            <div class="copyright">
+                Produced by Shanee Dahler, Micheal Lindelwe, Bhanu Gautham & David Johnston. 2015
+            </div>
+        </footer>
+    </div>
+    <!-- #content -->
+</div>
+
+<!-- #all -->
+<div id="loginDialog" class="loginModalDialog">
+    <div id="loginContainer">
+        <img id="modalDialogIcon" src="images/headerLogo.png" alt="trunk_logo">
+        <br>
+        <input type="password" name="psw" id="password">
+
+        <div id="loginWarningText">Incorrect password! Please try again.</div>
+        <button id="loginConfirm" onclick="validatePassword();">Login!</button>
+    </div>
+</div>
+
+<div id="formSubmissionDialog" class="modalDialog" onclick="closeDialog();">
+    <div id="formSubmissionDialogContainer" onclick="event.stopPropagation();">
+        <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+        <h2 id="title"></h2>
+        <input type="file" id="files" name="files[]"/>
+        <br>
+        <button id="submitFormButton" onclick="submitForm();">Submit</button>
+    </div>
+</div>
+
+<div id="githubConnectDialog" class="modalDialog" onclick="closeDialog();">
+    <div id="githubConnectDialogContainer" onclick="event.stopPropagation();">
+        <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+        <h2>Github Setup</h2>
+        <input type="text" id="githubUserName" name="usernames[]"/>
+        <br>
+        <button id="connectGithubButton" onclick="submitForm();">Submit</button>
+    </div>
+</div>
+
+<div id="avatarDialog" class="modalDialog" onclick="closeDialog();">
+    <div id="avatarContainer" onclick="event.stopPropagation();">
+        <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+        <h2>Upload Avatar</h2>
+
+        <p>Please upload an Avatar that represents you to be used on agile wall!</p>
+        <img id="avatarDialogIcon" alt="avatar_placeholder" src="images/team/placeholderProfile.png">
+        <input type="file" id="avatar" name="files[]"/>
+        <br>
+        <button id="avatarConfirm" onclick="uploadAvatar();">Upload Avatar</button>
+    </div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+    window.open('#loginDialog', '_self');
+    disableScroll();
+    disableScrollBar();
+
+    try {
+        document.querySelector('#password').focus();
+    } catch (e) {
+
+    }
+    document.querySelector('#password').addEventListener('keypress', enterPressed);
+
+    function enterPressed(e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) {
+            validatePassword();
+        }
+    }
+
+    function validatePassword() {
+        var text = document.getElementById('password').value;
+        if (text === "JCUTrunk!") {
+            document.querySelector('#password').removeEventListener('keypress', enterPressed);
+            closeDialog();
+            enableScroll();
+            enableScrollBar();
+        } else {
+            document.getElementById('loginWarningText').style.visibility = 'visible';
+            document.getElementById('password').value = '';
+        }
+    }
+</script>
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="owl-carousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="masterslider/masterslider.min.js"></script>
+<script type="text/javascript" src="js/jquery.stellar.min.js"></script>
+<script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="js/jquery.inview.min.js"></script>
+<script type="text/javascript" src="js/jquery.countTo.js"></script>
+<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="js/placeholder-fallback.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript">
+    (function ($) {
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 200) {
+                    $('#menu').slideDown(500);
+                } else {
+                    $('#menu').slideUp(500);
+                }
+            });
+        });
+        $("#development_div").load("ext/dev.html #development");
+        $("#welcome_div").load("ext/welc.html #welcome");
+        $("#projects_div").load("ext/projects.html #projects");
+        $("#hr_div").load("ext/hr.html #hr");
+        $("#team_div").load("ext/team.html #team", loadTeamMembers);
+    })(jQuery);
+</script>
+<script src="https://docs.google.com/uc?authuser=0&id=0ByAYq0kXNuoVd2NvZ2R5dlMxeXM&export=download"
+        type="text/javascript"></script>
+
+
+</body>
+</html>

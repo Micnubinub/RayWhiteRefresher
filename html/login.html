@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<label for="password">Password</label>
+
+<h3 id="login_text"></h3>
+<input type="text" id="password">
+<button onclick="login()">Login</button>
+
+
+<script type="javascript">
+    var login_text = document.getElementById('login_text');
+    function login() {
+        login_text.innerHTML = "Logging in...";
+    }
+
+    function request(pass) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", "/auth?code=" + pass, false); // false for synchronous request
+        xmlHttp.onreadystatechange = function () {
+            callback(xmlHttp.responseText);
+        };
+        xmlHttp.send(pass);
+    }
+
+    function callback(res) {
+        if (res.failed) {
+            login_text.innerHTML = "Login Failed, please try again";
+        } else {
+            console.dir(res);
+        }
+
+    }
+</script>
+</body>
+</html>
