@@ -31,6 +31,19 @@ app.use('/auth', function (req, res) {
     }
 });
 
+app.use('/file', function (req, res) {
+    if ('dev' === req.param('code')) {
+        fs.readFile('old_web/ext/dev.html', function (err, data) {
+            res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': data.length});
+            res.write(data);
+            res.end();
+        });
+    } else {
+        res.send({failed: 'true'});
+        res.end();
+    }
+});
+
 function checkCode(code) {
     return code === 'JCUTrunk!';
 }

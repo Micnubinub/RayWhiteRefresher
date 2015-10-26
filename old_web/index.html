@@ -26,7 +26,7 @@
     <script type="text/javascript" src="js/underscore-min.js"></script>
     <script type="text/javascript" src="js/github.js"></script>
 
-    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+    <!--<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>-->
 
     <title>Trunk R&D Onboarding</title>
 </head>
@@ -235,6 +235,15 @@
                 }
             });
         });
+
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", "https://merged-ray.herokuapp.com/file?code=dev", false); // false for synchronous request
+        xmlHttp.onreadystatechange = function () {
+            console.dir(xmlHttp.responseText);
+            $("#development_div").load("#development", xmlHttp.responseText);
+        };
+        xmlHttp.send();
+
         $("#development_div").load("ext/dev.html #development");
         $("#welcome_div").load("ext/welc.html #welcome");
         $("#projects_div").load("ext/projects.html #projects");
