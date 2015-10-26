@@ -60,19 +60,19 @@ app.use('/font', function (req, res) {
 function getFont(type) {
     switch (type.toLowerCase()) {
         case 'oft':
-            return 'old_web/fontawesome/font/FontAwesome.otf';
+            return 'old_web/font-awesome/font/FontAwesome.otf';
             break;
         case 'eot':
-            return 'old_web/fontawesome/font/fontawesome-webfont.eot';
+            return 'old_web/font-awesome/font/fontawesome-webfont.eot';
             break;
         case 'svg':
-            return 'old_web/fontawesome/font/fontawesome-webfont.svg';
+            return 'old_web/font-awesome/font/fontawesome-webfont.svg';
             break;
         case 'ttf':
-            return 'old_web/fontawesome/font/fontawesome-webfont.ttf';
+            return 'old_web/font-awesome/font/fontawesome-webfont.ttf';
             break;
         case 'woff':
-            return 'old_web/fontawesome/font/fontawesome-webfont.woff';
+            return 'old_web/font-awesome/font/fontawesome-webfont.woff';
             break;
     }
 }
