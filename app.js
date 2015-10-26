@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 
 app.use('/auth', function (req, res) {
     if (checkCode(req.param('code'))) {
-        fs.readFile('html/page.html', function (err, data) {
+        fs.readFile('old_web/index.html', function (err, data) {
             res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': data.length});
             res.write(data);
             res.end();

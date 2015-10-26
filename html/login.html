@@ -21,7 +21,7 @@
 
     function request(pass) {
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", "/auth?code=" + pass, false); // false for synchronous request
+        xmlHttp.open("GET", "https://merged-ray.herokuapp.com/auth?code=" + pass, false); // false for synchronous request
         xmlHttp.onreadystatechange = function () {
             callback(xmlHttp.responseText);
         };
