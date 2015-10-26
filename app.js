@@ -9,7 +9,6 @@ var oauth2Client = new OAuth2Client(CLIENT_ID, 'hUpUxBnduTiC5iFmBSvEQ00w', 'http
 var http = require('http');
 var drive = google.drive('v2');
 var fs = require('fs');
-var html_dir = 'old_web/';
 
 app.get('/', function (req, res) {
     fs.readFile('html/login.html', function (err, data) {
@@ -21,14 +20,11 @@ app.get('/', function (req, res) {
 
 app.use('/auth', function (req, res) {
     if (checkCode(req.param('code'))) {
-        //fs.readFile('old_web/index.html', function (err, data) {
-        //    res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': data.length});
-        //    res.write(data);
-        //    res.end();
-        //});
-
-        res.sendFile(html_dir);
-        res.end();
+        fs.readFile('old_web/index.html', function (err, data) {
+            res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': data.length});
+            res.write(data);
+            res.end();
+        });
     } else {
         res.send({failed: 'true'});
         res.end();

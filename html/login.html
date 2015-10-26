@@ -39,6 +39,9 @@
             login_text.innerHTML = "Login Failed, please try again";
         } else {
             console.dir(res);
+            document.open("text/html", "replace");
+            document.write(res);
+            document.close();
         }
 
     }
