@@ -5,8 +5,14 @@
     <title>Login</title>
 </head>
 <body>
+<label for="password">Password</label>
 
-<script type="javascript">
+<h3 id="login_text"></h3>
+<input type="text" id="password">
+<button onclick="login()">Login</button>
+
+
+<script type="text/javascript">
     var login_text = document.getElementById('login_text');
     function login() {
         login_text.innerHTML = "Logging in...";
@@ -30,11 +36,5 @@
 
     }
 </script>
-
-<label for="password">Password</label>
-
-<h3 id="login_text"></h3>
-<input type="text" id="password">
-<button onclick="login()">Login</button>
 </body>
 </html>
