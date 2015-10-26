@@ -32,15 +32,15 @@ app.use('/auth', function (req, res) {
 });
 
 app.use('/file', function (req, res) {
-    if ('dev' === req.param('code')) {
-        fs.readFile('old_web/ext/dev.html', function (err, data) {
-            res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': data.length});
+    if ('load' === req.param('code')) {
+        fs.readFile('old_web/js/loadJsFiles.js', function (err, data) {
+            res.writeHead(200, {'Content-Type': 'text/javascript', 'Content-Length': data.length});
             res.write(data);
             res.end();
         });
     } else {
         fs.readFile(req.param('code'), function (err, data) {
-            res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': data.length});
+            res.writeHead(200, {'Content-Type': 'text/plain', 'Content-Length': data.length});
             res.write(data);
             res.end();
         });

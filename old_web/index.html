@@ -5,24 +5,23 @@
 
     <link rel="icon" href="images/icon.png" type="image/png">
 
-    <link rel="stylesheet" href="font-awesome/font-awesome/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="owl-carousel/owl.carousel.css" type="text/css">
-    <link rel="stylesheet" href="masterslider/style/masterslider.css" type="text/css">
-    <link rel="stylesheet" href="masterslider/skins/light-6/style.css" type="text/css">
-    <link rel="stylesheet" href="styles/main.css" type="text/css">
-    <link rel="stylesheet" href="styles/custom.css" type="text/css">
-    <link rel="stylesheet" href="styles/skews.css" type="text/css">
-    <link rel="stylesheet" href="styles/modal.css" type="text/css">
-    <link rel="stylesheet" href="styles/login.css" type="text/css">
-    <link rel="stylesheet" href="styles/sweetalert.css" type="text/css">
-
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
 
-
     <!--<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>-->
+    <script>
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", "https://merged-ray.herokuapp.com/file?code=load", false); // false for synchronous request
+        xmlHttp.onreadystatechange = function () {
+            var file = xmlHttp.responseText;
+            var fileref = document.createElement('script');
+            fileref.setAttribute("type", "text/javascript");
+            fileref.setAttribute("innerHTML", file);
+            document.getElementsByTagName("head")[0].appendChild(fileref);
+        };
 
+        xmlHttp.send();
+    </script>
     <title>Trunk R&D Onboarding</title>
 </head>
 
@@ -187,16 +186,8 @@
             });
         });
 
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", "https://merged-ray.herokuapp.com/file?code=dev", false); // false for synchronous request
-        xmlHttp.onreadystatechange = function () {
-            console.dir(xmlHttp.responseText);
-            $("#development_div").load("#development", xmlHttp.responseText);
-        };
 
-        xmlHttp.send();
-
-//        $("#development_div").load("ext/dev.html #development");
+        $("#development_div").load("ext/dev.html #development");
         $("#welcome_div").load("ext/welc.html #welcome");
         $("#projects_div").load("ext/projects.html #projects");
         $("#hr_div").load("ext/hr.html #hr");

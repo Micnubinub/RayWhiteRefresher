@@ -20,6 +20,7 @@ var jsFiles = ["old_web/js/modernizr.js",
     "old_web/js/custom.js"];
 
 var cssFiles = [
+    "old_web/font-awesome/font-awesome/css/font-awesome.min.css",
     "old_web/bootstrap/css/bootstrap.min.css",
     "old_web/owl-carousel/owl.carousel.css",
     "old_web/masterslider/style/masterslider.css",
