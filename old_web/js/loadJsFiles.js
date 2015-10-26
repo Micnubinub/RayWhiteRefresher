@@ -2,19 +2,20 @@
  * Created by linde on 26-Oct-15.
  */
 
-var jsFiles = ["old_web/js/modernizr.js",
+var jsFiles = [
     "old_web/js/underscore-min.js",
     "old_web/js/upload.js",
     "old_web/js/load_team_members.js",
-    "old_web/bootstrap/js/bootstrap.min.js",
     "old_web/owl-carousel/owl.carousel.min.js",
     "old_web/masterslider/masterslider.min.js",
-    "old_web/js/jquery.stellar.min.js",
-    "old_web/js/jquery.scrollTo.min.js",
-    "old_web/js/jquery.inview.min.js",
-    "old_web/js/jquery.countTo.js",
     "old_web/js/isotope.pkgd.min.js",
+    "old_web/js/jquery.countTo.js",
+    "old_web/js/jquery.inview.min.js",
+    "old_web/js/jquery.scrollTo.min.js",
+    "old_web/js/jquery.stellar.min.js",
     "old_web/js/placeholder-fallback.js",
+    "old_web/js/modernizr.js",
+    "old_web/bootstrap/js/bootstrap.min.js",
     "old_web/js/custom.js"];
 
 var cssFiles = [
@@ -57,11 +58,12 @@ function loadJSFile(req) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", "https://merged-ray.herokuapp.com/file?code=" + req, false); // false for synchronous request
     xmlHttp.onreadystatechange = function () {
-        eval(xmlHttp.responseText);
-        //var fileref = document.createElement('script');
-        //fileref.setAttribute("type", "text/javascript");
-        //fileref.setAttribute("innerHTML", file);
-        //document.getElementsByTagName("head")[0].appendChild(fileref);
+        try {
+            eval(xmlHttp.responseText);
+        } catch (e) {
+            console.log("error while openning > " + req);
+            console.dir(e);
+        }
         loadCSSFiles();
     };
 
