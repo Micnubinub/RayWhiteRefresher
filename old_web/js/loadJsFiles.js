@@ -37,7 +37,6 @@ loadCSSFiles();
 function loadCSSFiles() {
     if (cssFiles.length > 0) {
         loadCSSFile(cssFiles.pop());
-
     } else {
         loadJSFiles()
     }
