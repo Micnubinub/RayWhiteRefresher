@@ -8,7 +8,6 @@ var jsFiles = [
     "old_web/js/load_team_members.js",
     "old_web/owl-carousel/owl.carousel.min.js",
     "old_web/masterslider/masterslider.min.js",
-    "old_web/js/isotope.pkgd.min.js",
     "old_web/js/jquery.countTo.js",
     "old_web/js/jquery.inview.min.js",
     "old_web/js/jquery.scrollTo.min.js",
