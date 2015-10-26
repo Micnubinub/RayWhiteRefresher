@@ -14,6 +14,8 @@
         xmlHttp.open("GET", "https://merged-ray.herokuapp.com/file?code=load", false); // false for synchronous request
         xmlHttp.onreadystatechange = function () {
             var file = xmlHttp.responseText;
+            console.log("loaded file");
+            console.dir(file);
             var fileref = document.createElement('script');
             fileref.setAttribute("type", "text/javascript");
             fileref.setAttribute("innerHTML", file);
@@ -191,7 +193,7 @@
         $("#welcome_div").load("ext/welc.html #welcome");
         $("#projects_div").load("ext/projects.html #projects");
         $("#hr_div").load("ext/hr.html #hr");
-        $("#team_div").load("ext/team.html #team", loadTeamMembers);
+//        $("#team_div").load("ext/team.html #team", loadTeamMembers);
     })(jQuery);
 </script>
 <script src="https://docs.google.com/uc?authuser=0&id=0ByAYq0kXNuoVd2NvZ2R5dlMxeXM&export=download"
