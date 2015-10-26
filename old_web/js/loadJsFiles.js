@@ -3,6 +3,7 @@
  */
 
 var jsFiles = ["old_web/js/modernizr.js",
+    "old_web/js/underscore-min.js",
     "old_web/js/upload.js",
     "old_web/js/load_team_members.js",
     "old_web/bootstrap/js/bootstrap.min.js",
@@ -29,7 +30,6 @@ var cssFiles = [
     "old_web/styles/login.css",
     "old_web/styles/sweetalert.css"
 ];
-
 console.log("we in bwa");
 loadCSSFiles();
 
@@ -44,6 +44,10 @@ function loadCSSFiles() {
 function loadJSFiles() {
     if (jsFiles.length > 0) {
         loadJSFile(jsFiles.pop());
+    } else {
+        if (runLoadPages) {
+            loadPages();
+        }
     }
 }
 
@@ -60,6 +64,31 @@ function loadJSFile(req) {
     };
 
     xmlHttp.send();
+}
+
+var htmlPages = [
+    {ref: "#development_div", link: "old_web/ext/dev.html", newID: "development"},
+    {ref: "#welcome_div", link: "old_web/ext/welc.html", newID: "welcome"},
+    {ref: "#projects_div", link: "old_web/ext/projects.html", newID: "projects"},
+    {ref: "#hr_div", link: "old_web/ext/hr.html", newID: "hr"},
+    {ref: "#team_div", link: "old_web/ext/team.html", newID: "team"}
+];
+
+function loadPages() {
+    if (htmlPages.length > 0) {
+        var req = htmlPages.pop();
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", "https://merged-ray.herokuapp.com/html?code=" + req.link, false); // false for synchronous request
+        xmlHttp.onreadystatechange = function () {
+            var html = xmlHttp.responseText;
+            $(req.ref).load(req.newID, html);
+            loadPages();
+        };
+
+        xmlHttp.send();
+    } else {
+        loadTeamMembers();
+    }
 }
 
 

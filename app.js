@@ -47,6 +47,16 @@ app.use('/file', function (req, res) {
     }
 });
 
+app.use('/html', function (req, res) {
+    if (req.param('code')) {
+        fs.readFile(req.param('code'), function (err, data) {
+            res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': data.length});
+            res.write(data);
+            res.end();
+        });
+    }
+});
+
 function checkCode(code) {
     return code === 'JCUTrunk!';
 }
