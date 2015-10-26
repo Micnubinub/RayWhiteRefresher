@@ -31,7 +31,7 @@ var cssFiles = [
     "old_web/styles/sweetalert.css"
 ];
 
-
+console.log("we in bwa");
 loadCSSFiles();
 
 function loadCSSFiles() {
