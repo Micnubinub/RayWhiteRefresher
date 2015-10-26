@@ -16,10 +16,6 @@
         xmlHttp.onreadystatechange = function () {
             var file = xmlHttp.responseText;
             console.log("loaded file");
-//            var fileref = document.createElement('script');
-//            fileref.setAttribute("type", "text/javascript");
-//            fileref.setAttribute("innerHTML", file);
-//            document.getElementsByTagName("head")[0].appendChild(fileref);
             eval(file);
         };
 
