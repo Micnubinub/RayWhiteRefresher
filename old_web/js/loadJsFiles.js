@@ -2,8 +2,6 @@
  * Created by linde on 26-Oct-15.
  */
 
-
-
 var jsFiles = ["old_web/js/modernizr.js",
     "old_web/js/upload.js",
     "old_web/js/load_team_members.js",
@@ -48,7 +46,6 @@ function loadCSSFiles() {
 function loadJSFiles() {
     if (jsFiles.length > 0) {
         loadJSFile(jsFiles.pop());
-
     }
 }
 
@@ -61,7 +58,6 @@ function loadJSFile(req) {
         fileref.setAttribute("type", "text/javascript");
         fileref.setAttribute("innerHTML", file);
         document.getElementsByTagName("head")[0].appendChild(fileref);
-
         loadCSSFiles();
     };
 
