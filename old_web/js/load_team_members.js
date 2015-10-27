@@ -180,6 +180,9 @@ function loadTeamMembers() {
     var engineers = $(div).find("#team-slider1")[0];
     var directors = $(div).find("#team-directors-slider")[0];
 
+    console.dir(engineers);
+    console.dir(directors);
+
     team_members.forEach(function (item) {
         var div0 = document.createElement("div");
         div0.className = "col-md-12";
