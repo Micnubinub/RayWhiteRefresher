@@ -40,19 +40,19 @@ app.use('/file', function (req, res) {
             res.end();
         });
     } else if (code === 'choice') {
-        fs.readFile('old_web/files/Super%20Choice%20Form%20-%20Standard.pdf', function (err, data) {
+        fs.readFile('old_web/files/SuperChoiceForm-Standard.pdf', function (err, data) {
             res.writeHead(200, {'Content-Type': 'application/pdf', 'Content-Length': data.length});
             res.write(data);
             res.end();
         });
     } else if (code === 'employ') {
-        fs.readFile('old_web/files/Trunk%20Platform%20Pty%20Ltd%20-%20Employee%20Details%20Form.pdf', function (err, data) {
+        fs.readFile('old_web/files/TrunkPlatformEmployeeDetailsForm.pdf', function (err, data) {
             res.writeHead(200, {'Content-Type': '*/*', 'Content-Length': data.length});
             res.write(data);
             res.end();
         });
     } else if (code === 'tax') {
-        fs.readFile('old_web/files/Tax%20Declaration%20Form.pdf', function (err, data) {
+        fs.readFile('old_web/files/TaxDeclarationForm.pdf', function (err, data) {
             res.writeHead(200, {'Content-Type': 'application/pdf', 'Content-Length': data.length});
             res.write(data);
             res.end();
