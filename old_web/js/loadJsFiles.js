@@ -2,7 +2,6 @@ var jsFiles = [
     "old_web/js/modernizr.js",
     "old_web/js/underscore-min.js",
     "old_web/js/upload.js",
-    "old_web/js/load_team_members.js",
     "old_web/owl-carousel/owl.carousel.min.js",
     "old_web/masterslider/masterslider.min.js",
     "old_web/js/jquery.countTo.js",
@@ -11,6 +10,7 @@ var jsFiles = [
     "old_web/js/jquery.stellar.min.js",
     "old_web/js/placeholder-fallback.js",
     "old_web/bootstrap/js/bootstrap.min.js",
+    "old_web/js/load_team_members.js",
     "old_web/js/custom.js"];
 
 var cssFiles = [
