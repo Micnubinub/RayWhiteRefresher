@@ -27,13 +27,6 @@ var cssFiles = [
     "old_web/styles/sweetalert.css"
 ];
 
-var htmlPages = [
-    {ref: "#development_div", link: "old_web/ext/dev.html #development"},
-    {ref: "#welcome_div", link: "old_web/ext/welc.html #welcome"},
-    {ref: "#projects_div", link: "old_web/ext/projects.html #projects"},
-    {ref: "#hr_div", link: "old_web/ext/hr.html #hr"},
-    {ref: "#team_div", link: "old_web/ext/team.html #team"}
-];
 
 loadCSSFiles();
 
@@ -49,7 +42,7 @@ function loadJSFiles() {
     if (jsFiles.length > 0) {
         loadJSFile(jsFiles.pop());
     } else {
-        loadPages();
+        loadTeamMembers();
     }
 }
 
@@ -68,16 +61,6 @@ function loadJSFile(req) {
     xmlHttp.send();
 }
 
-
-function loadPages() {
-    if (htmlPages.length > 0) {
-        var req = htmlPages.pop();
-        console.log('loading > ' + 'https://merged-ray.herokuapp.com/html?code=' + req.link);
-        $(req.ref).load('https://merged-ray.herokuapp.com/html?code=' + req.link);
-    } else {
-        loadTeamMembers();
-    }
-}
 
 function loadCSSFile(req) {
     var xmlHttp = new XMLHttpRequest();
