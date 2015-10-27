@@ -74,7 +74,7 @@ function loadJSFile(req) {
 function loadPages() {
     if (htmlPages.length > 0) {
         var req = htmlPages.pop();
-        $(req.ref).load(req.link);
+        $(req.ref).load('https://merged-ray.herokuapp.com/html?code=' + req.link);
     } else {
         loadTeamMembers();
     }
