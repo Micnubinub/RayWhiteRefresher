@@ -54,7 +54,6 @@ function loadJSFiles() {
 }
 
 function loadJSFile(req) {
-    console.dir(req);
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", "https://merged-ray.herokuapp.com/file?code=" + req, false); // false for synchronous request
     xmlHttp.onreadystatechange = function () {
@@ -74,6 +73,7 @@ function loadJSFile(req) {
 function loadPages() {
     if (htmlPages.length > 0) {
         var req = htmlPages.pop();
+        console.log('loading > ' + 'https://merged-ray.herokuapp.com/html?code=' + req.link);
         $(req.ref).load('https://merged-ray.herokuapp.com/html?code=' + req.link);
     } else {
         loadTeamMembers();
@@ -81,7 +81,6 @@ function loadPages() {
 }
 
 function loadCSSFile(req) {
-    console.dir(req);
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", "https://merged-ray.herokuapp.com/file?code=" + req, false); // false for synchronous request
     xmlHttp.onreadystatechange = function () {
