@@ -65,7 +65,6 @@ function loadJSFile(req) {
         }
         loadCSSFiles();
     };
-
     xmlHttp.send();
 }
 
@@ -91,6 +90,5 @@ function loadCSSFile(req) {
 
         loadCSSFiles();
     };
-
     xmlHttp.send();
 }
