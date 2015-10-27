@@ -67,6 +67,28 @@ app.use('/file', function (req, res) {
     }
 });
 
+app.use('/js', function (req, res) {
+    var code = req.param('code');
+    if ('load' === code) {
+        fs.readFile('old_web/js/loadJsFiles.js', function (err, data) {
+            res.writeHead(200, {'Content-Type': 'text/javascript', 'Content-Length': data.length});
+            res.write(data);
+            res.end();
+        });
+    }
+});
+
+app.use('/css', function (req, res) {
+    var code = req.param('code');
+    if ('load' === code) {
+        fs.readFile('old_web/js/loadJsFiles.js', function (err, data) {
+            res.writeHead(200, {'Content-Type': 'text/css', 'Content-Length': data.length});
+            res.write(data);
+            res.end();
+        });
+    }
+});
+
 app.use('/master', function (req, res) {
     fs.readFile('old_web/masterslider/style/' + greq.param('code'), function (err, data) {
         res.writeHead(200, {'Content-Type': '*/*', 'Content-Length': data.length});
