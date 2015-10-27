@@ -177,16 +177,8 @@ var team_members = [
 function loadTeamMembers() {
     console.log('loading team members');
     setTimeout(function () {
-        var div = document.getElementById("team");
-        var engineers = $(div).find("#team-slider1")[0];
-        var directors = $(div).find("#team-directors-slider")[0];
-
-        console.dir(div);
-        console.dir(engineers);
-        console.dir(directors);
-
-        console.dir(document.getElementById("team-slider1"));
-        console.dir(document.getElementById("team-directors-slider"));
+        var engineers = document.getElementById("team-slider1");
+        var directors = document.getElementById("team-directors-slider");
 
         team_members.forEach(function (item) {
             var div0 = document.createElement("div");
