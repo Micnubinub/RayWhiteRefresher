@@ -184,6 +184,9 @@ function loadTeamMembers() {
     console.dir(engineers);
     console.dir(directors);
 
+    console.dir(document.getElementById("team-slider1"));
+    console.dir(document.getElementById("team-directors-slider"));
+
     team_members.forEach(function (item) {
         var div0 = document.createElement("div");
         div0.className = "col-md-12";
