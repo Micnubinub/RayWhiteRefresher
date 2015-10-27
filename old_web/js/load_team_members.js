@@ -176,7 +176,7 @@ var team_members = [
 
 function loadTeamMembers() {
     console.log('loading team members');
-    var div = document.getElementById("team_div");
+    var div = document.getElementById("team");
     var engineers = $(div).find("#team-slider1")[0];
     var directors = $(div).find("#team-directors-slider")[0];
 
