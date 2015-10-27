@@ -1,4 +1,5 @@
 var jsFiles = [
+    "old_web/js/modernizr.js",
     "old_web/js/underscore-min.js",
     "old_web/js/upload.js",
     "old_web/js/load_team_members.js",
@@ -9,7 +10,6 @@ var jsFiles = [
     "old_web/js/jquery.scrollTo.min.js",
     "old_web/js/jquery.stellar.min.js",
     "old_web/js/placeholder-fallback.js",
-    "old_web/js/modernizr.js",
     "old_web/bootstrap/js/bootstrap.min.js",
     "old_web/js/custom.js"];
 
@@ -26,6 +26,15 @@ var cssFiles = [
     "old_web/styles/login.css",
     "old_web/styles/sweetalert.css"
 ];
+
+var htmlPages = [
+    {ref: "#development_div", link: "old_web/ext/dev.html", newID: "development"},
+    {ref: "#welcome_div", link: "old_web/ext/welc.html", newID: "welcome"},
+    {ref: "#projects_div", link: "old_web/ext/projects.html", newID: "projects"},
+    {ref: "#hr_div", link: "old_web/ext/hr.html", newID: "hr"},
+    {ref: "#team_div", link: "old_web/ext/team.html", newID: "team"}
+];
+
 console.log("we in bwa");
 loadCSSFiles();
 
@@ -64,13 +73,6 @@ function loadJSFile(req) {
     xmlHttp.send();
 }
 
-var htmlPages = [
-    {ref: "#development_div", link: "old_web/ext/dev.html", newID: "development"},
-    {ref: "#welcome_div", link: "old_web/ext/welc.html", newID: "welcome"},
-    {ref: "#projects_div", link: "old_web/ext/projects.html", newID: "projects"},
-    {ref: "#hr_div", link: "old_web/ext/hr.html", newID: "hr"},
-    {ref: "#team_div", link: "old_web/ext/team.html", newID: "team"}
-];
 
 function loadPages() {
     console.log("loading htmlfiles");
