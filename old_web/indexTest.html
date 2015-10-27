@@ -1,78 +1,1733 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <script src="https://apis.google.com/js/platform.js" async defer>{
-        'explicit'
-    }
-    </script>
+    <meta charset="utf-8">
 
-    <script type="text/javascript" src="js/test/upload_test.js"></script>
-    <script type="text/javascript" src="js/test/upload.js"></script>
-    <script type="text/javascript" src="js/test/drop_zone.js"></script>
-    <script type="text/javascript">
-        var CLIENT_ID = '593040901725-9r7dsorg990rv1d2t693diuipqo8lns2.apps.googleusercontent.com';
-        var SCOPES = [
-            'https://www.googleapis.com/auth/drive.file',
-            'email',
-            'profile',
-            // Add other scopes needed by your application.
-        ];
+    <link rel="icon" href="images/icon.png" type="image/png">
 
-        /**
-         * Called when the client library is loaded.
-         */
-        function handleClientLoad() {
-            checkAuth();
-        }
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="owl-carousel/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="masterslider/style/masterslider.css" type="text/css">
+    <link rel="stylesheet" href="masterslider/skins/light-6/style.css" type="text/css">
+    <link rel="stylesheet" href="styles/main.css" type="text/css">
+    <link rel="stylesheet" href="styles/custom.css" type="text/css">
+    <link rel="stylesheet" href="styles/skews.css" type="text/css">
+    <link rel="stylesheet" href="styles/modal.css" type="text/css">
+    <link rel="stylesheet" href="styles/login.css" type="text/css">
+    <link rel="stylesheet" href="font-awesome/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="styles/sweetalert.css" type="text/css">
+    <link rel="stylesheet" href="styles/card_flip.css" type="text/css">
 
-        /**
-         * Check if the current user has authorized the application.
-         */
-        function checkAuth() {
-            console.log("<ch></ch>eckAuth");
-            gapi.auth.authorize(
-                    {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': true},
-                    handleAuthResult);
-        }
 
-        /**
-         * Called when authorization server replies.
-         *
-         * @param {Object} authResult Authorization result.
-         */
-        function handleAuthResult(authResult) {
-            console.log("handleAuth");
-            if (authResult) {
-                // Access token has been successfully retrieved, requests can be sent to the API
-                accessToken = authResult.access_token;
-                uploadR();
-            } else {
-                // No access token could be retrieved, force the authorization flow.
-                gapi.auth.authorize(
-                        {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': false},
-                        handleAuthResult);
-            }
-        }
-    </script>
+    <script type="text/javascript" src="js/modernizr.js"></script>
+    <script type="text/javascript" src="js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="js/upload.js"></script>
+    <script type="text/javascript" src="js/gmail.js"></script>
+    <script type="text/javascript" src="js/accountManager.js"></script>
+    <script type="text/javascript" src="js/underscore-min.js"></script>
+    <script type="text/javascript" src="js/github.js"></script>
+
     <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 
+    <title>Trunk R&D Onboarding</title>
 </head>
+
 <body>
-<!-- YOUR CONTENT -->
 
-<div id="container">
-    <div class="g-savetodrive"
-         data-src="images/logoHori.png"
-         data-filename="LogoHori.jpg"
-         data-sitename="TestName">
-        <div>
+<div id="all">
+    <div id="content">
+        <div id="menu">
+            <!--<img id="main-logo2" alt="logo" src="images/headerLogo.png">-->
+            <ul class="nav">
+                <!--  Add require site page navigation -->
+                <li><a href="#intro"> <i class="fa fa-home"> </i>Home</a></li>
+                <li><a href="#welcome-start"> <i class="fa fa-heart"> </i>Welcome</a></li>
+                <li><a href="#projects"> <i class="fa fa-pencil"> </i>Projects</a></li>
+                <li><img id="main-logo2" alt="logo" src="images/headerLogo.png"></li>
+                <li><a href="#team"> <i class="fa fa-group"></i> Team</a></li>
+                <li><a href="#hr"> <i class="fa fa-calendar-empty"></i> HR</a></li>
+                <li><a href="#development"> <i class="fa fa-book"></i> Development</a></li>
+            </ul>
         </div>
-    </div>
 
-    <div style="width: 500px; height: 300px; background: #00bbff;">
-        <form action="/file-upload"
-              class="dropzone"
-              id="my-awesome-dropzone" style="width: 500px; height: 300px; background: #00bbff;"></form>
+        <div id="intro">
+            <div class="head-container">
+
+                <div class="ms-fullscreen-template" id="slider1-wrapper">
+                    <div class="master-slider ms-skin-light-6 ms-skin-round" id="masterslider">
+                        <div class="ms-slide">
+                            <img src="images/teamTrunkTeal.png" data-src="images/teamTrunkTeal.png"
+                                 alt="header img">
+
+                            <div class="ms-layer">
+                                <div class="ms-layer-content">
+                                    <h1>Welcome to </h1>
+
+                                    <h2>Trunk R&D</h2>
+                                    <hr>
+                                    <p>You are hired to be a future Leader!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ms-slide">
+                            <img src="images/teamTrunkTeal.png" data-src="images/teamTrunkTeal.png"
+                                 alt="header img">
+
+                            <div class="ms-layer">
+                                <div class="ms-layer-content">
+                                    <h1>Embrace</h1>
+
+                                    <h2>Minimal Management</h2>
+                                    <hr>
+                                    <p>You are joining a self-organising team with a minimal management hierarchy.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skew-line bottom-top">
+                            <section id="welcome-start">
+                                <div class="skew-bottom-left skew-color-3 skew-small"></div>
+                                <div class="skew-bottom-right skew-color-2"></div>
+                            </section>
+                        </div>
+                    </div>
+                    <!-- .master-slider -->
+                </div>
+                <!-- .ms-fullscreen-template -->
+            </div>
+            <!-- .head-container -->
+        </div>
+        <!-- #head -->
+
+        <section id="welcome">
+
+            <div class="section-content section-dark">
+                <div id="welcome-content">
+                    <div class="container">
+                        <!--<div class="row">-->
+                        <div class="col-md-12 onscroll-animate">
+                            <div class="header-right">
+                                <h1>Welcome to Trunk</h1>
+
+                                <h2>Research & Development Team</h2>
+                                <hr>
+                                <br>
+                            </div>
+                        </div>
+                        <!-- .col-md-4 -->
+                        <div class="col-md-12 onscroll-animate">
+                            <p>You are hired to be a future leader as this company plans to continue growing for
+                                decades!
+                                You are joining a
+                                self-organising team with a minimal management hierarchy.</p>
+
+                            <p> You will be working with a team of
+                                software engineers
+                                from all over the world, consisting of former ThoughtWorks, Oracle, VMware and IBM
+                                engineers, PhD holders, and
+                                High-Distinction university graduates working in Sydney and Melbourne on cutting edge
+                                technologies for a varietyof industries.</p>
+                        </div>
+                        <!-- .col-md-8 -->
+                        <!--</div>&lt;!&ndash; .row &ndash;&gt;-->
+
+                    </div>
+                </div>
+
+
+                <!-- .container -->
+                <div id="aboutUs">
+                    <div class="skew-container">
+                        <div class="skew-line">
+                            <div class="skew-top-left skew-color-1 skew-tiny"></div>
+                            <div class="skew-top-right skew-color-2"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="col-md-8 onscroll-animate">
+                            <h1>About Trunk</h1>
+                            <hr>
+                            <br>
+                        </div>
+                        <div class="col-md-12 onscroll-animate">
+                            <p class="onscroll-animate">Trunk has developed and commercialised a web and mobile platform
+                                that underpins a
+                                range of business verticals for in the Real Estate, Health and Productivity industries
+                                amongst many others. By effectively
+                                utilising Microservice architecture, custom elements tailored to a specific industry can
+                                be
+                                added cost-effectively by Trunk’s Sydney
+                                and Melbourne based development teams. We provide technology for some of Australia’s
+                                largest
+                                Healthcare, Telecommunications and Real Estate companies
+                                and are expanding quickly.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-content section-image-light parallax-background"
+                 style="background-image:url('images/projectsBG.jpg');">
+                <div class="skew-container">
+                    <div class="skew-line">
+                        <div class="skew-top-right skew-color-1 skew-tiny"></div>
+                        <div class="skew-top-left skew-color-3"></div>
+                    </div>
+                </div>
+                <div class="container onscroll-animate">
+                    <div class="header-centre">
+                        <h1>Current Projects</h1>
+                        <hr>
+                        <h4>The team collaboratively build each micro-services and shares them across multiple
+                            projects. </h4>
+
+                    </div>
+
+                    <div class="owl-carousel" id="slider-blog-posts">
+                        <div class="col-md-12">
+                            <div class="projectsCurrent">
+                                <a href="https://trnk.io/" target="_blank">
+                                    <div class="project-image">
+                                        <img alt="Project Image" src="images/trunkProject.jpg">
+
+                                        <div class="image-detail">
+                                            <div class="image-detail-wrapper">
+                                                <div class="image-detail-content">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <div class="project-header">
+                                    <h3><a href="https://trnk.io/" target="_blank">Productivity Tool</a></h3>
+                                    <h4> Internal release</h4>
+                                </div>
+                                <div class="project-info">
+                                    <p>A tool designed to improve productivity!</p>
+                                    <h5>Website Link:<a href="https://trnk.io/" target="_blank">https://trnk.io/</a>
+                                    </h5>
+                                </div>
+                            </div>
+                            <!-- .blog-post -->
+                        </div>
+                        <!-- .col-md-12 -->
+
+                        <div class="col-md-12">
+                            <div class="projectsCurrent">
+                                <a href="http://apmasphere.com/" target="_blank">
+                                    <div class="project-image">
+                                        <img alt="Project image" src="images/apmasphereProject.jpg">
+
+                                        <div class="image-detail">
+                                            <div class="image-detail-wrapper">
+                                                <div class="image-detail-content">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <div class="project-header">
+                                    <h3><a href="http://apmasphere.com/" target="_blank">Apmasphere</a></h3>
+                                    <h4>Website Re-work</h4>
+                                </div>
+                                <div class="project-info">
+                                    <p>Rework of the apmasphere website which includes the additions of a forum and
+                                        blueprints section!</p>
+                                    <h5>Website Link:<a href="http://apmasphere.com/" target="_blank">http://apmasphere.com/</a>
+                                    </h5>
+                                </div>
+                            </div>
+                            <!-- .blog-post -->
+                        </div>
+                        <!-- .col-md-12 -->
+                        <div class="col-md-12">
+                            <div class="projectsCurrent">
+                                <a href="" target="_blank">
+                                    <div class="project-image">
+                                        <img alt="Project image" src="images/placeholderProject.jpg">
+
+                                        <div class="image-detail">
+                                            <div class="image-detail-wrapper">
+                                                <div class="image-detail-content">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <div class="project-header">
+                                    <h3><a href="" target="_blank">Placeholder Project</a></h3>
+                                    <h4>A Placeholder</h4>
+                                </div>
+                                <div class="project-info">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna.</p>
+                                </div>
+                            </div>
+                            <!-- .blog-post -->
+                        </div>
+                        <!-- .col-md-12 -->
+                        <div class="col-md-12">
+                            <div class="projectsCurrent">
+                                <a href="" target="_blank">
+                                    <div class="project-image">
+                                        <img alt="Project image" src="images/placeholderProject.jpg">
+
+                                        <div class="image-detail">
+                                            <div class="image-detail-wrapper">
+                                                <div class="image-detail-content">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <div class="project-header">
+                                    <h3><a href="">Placeholder Project</a></h3>
+                                    <h4>A Placeholder</h4>
+                                </div>
+                                <div class="project-info">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna.</p>
+                                </div>
+                            </div>
+                            <!-- .blog-post -->
+                        </div>
+                        <!-- .col-md-12 -->
+                    </div>
+                    <!-- .owl-carousel -->
+                </div>
+                <!-- .container -->
+                <div class="skew-container">
+                    <div class="skew-line bottom-top">
+                        <div class="skew-bottom-left skew-color-3"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- .section-content -->
+        </section>
+
+        <section id="team">
+            <div class="section-content section-dark">
+                <div class="skew-container">
+                    <div class="skew-line">
+                        <div class="skew-top-left skew-color-1 skew-tiny"></div>
+                        <div class="skew-top-right skew-color-3"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="col-md-12">
+                        <h1>Meet The Team</h1>
+                        <hr>
+                        <br>
+
+                        <p class="onscroll-animate"> You will be working with a team of software engineers
+                            from all over the world, consisting of former ThoughtWorks, Oracle, VMware and IBM
+                            engineers, PhD holders, and High-Distinction university graduates working in Sydney and
+                            Melbourne on cutting edge
+                            technologies for a variety of industries.<br>
+                        </p>
+                    </div>
+
+                    <div class="header-centre">
+                        <h2>Meet The Directors</h2>
+                    </div>
+
+                    <div class="owl-carousel" id="team-directors-slider">
+
+                        <div class="col-md-12">
+                            <div class="profile">
+                                <a href="#benW-dialog" onclick="disableScroll();">
+                                    <div class="profile-photo">
+                                        <img alt="Ben White B/W photo" src="images/team/benwhiteClearThumb.png">
+                                    </div>
+                                </a>
+
+                                <div class="director-title">
+                                    <h3>Ben White</h3>
+
+                                    <p>Founder & Director</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="profile">
+                                <a href="#ashleyR-dialog" onclick="disableScroll();">
+                                    <div class="profile-photo">
+                                        <img alt="Ashley Renner B/W photo" src="images/team/ashleyClearThumbBW.png">
+                                    </div>
+                                </a>
+
+                                <div class="director-title">
+                                    <h3>Ashley Renner</h3>
+
+                                    <p>Founder & Director</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="profile">
+                                <a href="#navaM-dialog" onclick="disableScroll();">
+                                    <div class="profile-photo">
+                                        <img alt="Nava Mahdavi B/W photo" src="images/team/navaClearThumbBW.png">
+                                    </div>
+                                </a>
+
+                                <div class="director-title">
+                                    <h3>NAVA MAHDAVI</h3>
+
+                                    <p>Director</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="profile">
+                                <a href="#justinW-dialog" onclick="disableScroll();">
+                                    <div class="profile-photo">
+                                        <img alt="Justin Watts B/W photo" src="images/team/justinwattsClearThumbBW.png">
+                                    </div>
+                                </a>
+
+                                <div class="director-title">
+                                    <h3>JUSTIN WATTS</h3>
+
+                                    <p>Director of Marketing</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="profile">
+                                <a href="#timK-dialog" onclick="disableScroll();">
+                                    <div class="profile-photo">
+                                        <img alt="Tim Kotsiakos B/W photo"
+                                             src="images/team/timkotsiakosClearThumbBW.png">
+                                    </div>
+                                </a>
+
+                                <div class="director-title">
+                                    <h3>Tim Kotsiakos</h3>
+
+                                    <p>Creative Director & Founder of Mass</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Director Modals -->
+
+                    <div class="col-md-12">
+                        <div id="benW-dialog" class="modalbg" onclick="closeDialog();">
+                            <div class="dialog" onclick="event.stopPropagation();">
+                                <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                <div class="col-md-3">
+                                    <div class=" dialog-image">
+                                        <img alt="Ben White B/W photo" src="images/team/benwhiteClearThumb.png">
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-3">
+                                    <h2>Ben White</h2>
+
+                                    <h3>Founder & Director</h3>
+                                    <h4>What I do</h4>
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lorem velit,
+                                        porttitor non nibh eget,fringilla lacinia ex. </p>
+                                    <h4> Why I’m here</h4>
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lorem velit,
+                                        porttitor non nibh eget, fringilla lacinia ex. Quisque elit nisi, egestas eu
+                                        euismod non,
+                                        blandit in magna. </p>
+
+                                    <h4> My quote</h4>
+
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div id="ashleyR-dialog" class="modalbg" onclick="closeDialog();">
+                            <div class="dialog" onclick="event.stopPropagation();">
+                                <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+
+                                <div class="col-md-3">
+                                    <div class=" dialog-image">
+                                        <img alt="Ashler Renner B/W photo" src="images/team/ashleyClearThumbBW.png">
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-3">
+                                    <h2>Ashley Renner</h2>
+
+                                    <h3>Founder & Director</h3>
+                                    <h4>What I do</h4>
+
+                                    <p>As a director I work across Trunk to align vision and team culture into acohesive
+                                        whole. </p>
+                                    <h4> Why I’m here</h4>
+
+                                    <p>To discover and build the best culture and products on the planet.</p>
+
+                                    <h4> My quote</h4>
+
+                                    <p>"Embrace complexity"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div id="navaM-dialog" class="modalbg" onclick="closeDialog();">
+                            <div class="dialog" onclick="event.stopPropagation();">
+                                <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                <div class="col-md-3">
+                                    <div class=" dialog-image">
+                                        <img alt="Nava Mahdavi B/W photo" src="images/team/navaClearThumbBW.png">
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-3">
+                                    <h2>Nava Mahdavi</h2>
+
+                                    <h3>Director</h3>
+                                    <h4>What I do</h4>
+
+                                    <p>I am committed to creating focus on our core business, removing unnecessary
+                                        operational burden to allow the flow of true innovation. </p>
+                                    <h4> Why I’m here</h4>
+
+                                    <p>I see a great opportunity to deliver great product with an outstanding team.</p>
+
+
+                                    <h4> My quote</h4>
+
+                                    <p>"Strive for perfection"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div id="justinW-dialog" class="modalbg" onclick="closeDialog();">
+                            <div class="dialog" onclick="event.stopPropagation();">
+                                <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                <div class="col-md-3">
+                                    <div class=" dialog-image">
+                                        <img alt="Justin Watts B/W photo" src="images/team/justinwattsClearThumbBW.png">
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-3">
+                                    <h2>Justin Watts</h2>
+
+                                    <h3>Director of Marketing</h3>
+
+                                    <h4>What I do</h4>
+
+                                    <p>As the director of Marketing at Trunk I am always on the look out for ways that
+                                        we can reach the people who our products are going to help. </p>
+                                    <h4> Why I’m here</h4>
+
+                                    <p>Trunk has the ability to build amazing products and turn things around that are
+                                        practical, revolutionary and can
+                                        help people from all different disciplines.<br> I get excited about creating
+                                        stuff ­ not talking about it and Trunk has the right team, philosophy and method
+                                        to make things happen.</p>
+                                    <h4> My quote</h4>
+
+                                    <p>“Build, measure, learn” ­ Eric Reis</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div id="timK-dialog" class="modalbg" onclick="closeDialog();">
+                            <div class="dialog" onclick="event.stopPropagation();">
+                                <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                <div class="col-md-3">
+                                    <div class=" dialog-image">
+                                        <img alt="Tim Kotsiakos B/W photo"
+                                             src="images/team/timkotsiakosClearThumbBW.png">
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-3">
+                                    <h2>Tim Kotsiakos</h2>
+
+                                    <h3>Creative Director & Founder of Mass</h3>
+                                    <h4>What I do</h4>
+
+                                    <p>I will be dedicated 24 hrs per week working with you guys to make Trunk /
+                                        Apmasphere
+                                        the best possible UX/UI.</p>
+                                    <h4> Why I’m here</h4>
+
+                                    <p>I’m really excited about being part of designing a great digital product.</p>
+
+
+                                    <h4> My quote</h4>
+
+                                    <p>“Good design is as little design as possible” - Dieter Rams.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Engineer Section -->
+
+                        <div class="header-centre">
+                            <h2>Meet The Engineers</h2>
+                        </div>
+
+                        <div class="owl-carousel" id="team-slider1">
+                            <div class="col-md-12">
+                                <div class="profile">
+                                    <a href="#evgenyD-dialog" onclick="disableScroll();">
+
+                                        <div class="profile-photo">
+                                            <img alt="Evgeny Dudin B/W photo" src="images/team/evgenyClearThumbBW.png">
+                                        </div>
+                                    </a>
+
+                                    <div class="director-title">
+                                        <h3>Evgeny Dudin</h3>
+
+                                        <p>Lead Software Engineer & Chief Beard Officer</p>
+                                    </div>
+                                </div>
+
+                                <div class="profile">
+                                    <a href="#callumG-dialog" onclick="disableScroll();">
+                                        <div class="profile-photo">
+                                            <img alt="Callum Gardner B/W photo"
+                                                 src="images/team/callumClearThumbBW.png">
+                                        </div>
+                                    </a>
+
+                                    <div class="director-title">
+                                        <h3>Callum Gardner</h3>
+
+                                        <p>Junior Software Engineer</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="profile">
+                                    <a href="#yunZL-dialog" onclick="disableScroll();">
+                                        <div class="profile-photo">
+                                            <img alt="Yun Zhi Lin B/W photo" src="images/team/yunClearThumbBW.png">
+                                        </div>
+                                    </a>
+
+                                    <div class="director-title">
+                                        <h3>Yun Zhi Lin</h3>
+
+                                        <p>Senior Software Engineer</p>
+                                    </div>
+                                </div>
+
+                                <div class="profile">
+                                    <a href="#leeZ-dialog" onclick="disableScroll();">
+                                        <div class="profile-photo">
+                                            <img alt="Lee Zhao B/W photo" src="images/placeholderProfile.png">
+
+                                        </div>
+                                    </a>
+
+                                    <div class="director-title">
+                                        <h3>Lee Zhao</h3>
+
+                                        <p>Junior Software Engineer</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="profile">
+                                    <a href="#thomasW-dialog" onclick="disableScroll();">
+                                        <div class="profile-photo">
+                                            <img alt="Thomas Wolle B/W photo" src="images/team/thomasClearThumbBW.png">
+                                        </div>
+                                    </a>
+
+                                    <div class="director-title">
+                                        <h3>Thomas Wolle</h3>
+
+                                        <p>Senior Software Engineer</p>
+                                    </div>
+                                </div>
+
+                                <div class="profile">
+                                    <a href="#denisS-dialog" onclick="disableScroll();">
+                                        <div class="profile-photo">
+                                            <img alt="Denis Strygin B/W photo" src="images/placeholderProfile.png">
+                                        </div>
+                                    </a>
+
+                                    <div class="director-title">
+                                        <h3>Denis Strygin</h3>
+
+                                        <p>Junior Software Engineer</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="profile">
+                                    <a href="#danielT-dialog" onclick="disableScroll();">
+                                        <div class="profile-photo">
+                                            <img alt="Daniel Theodosius B/W photo"
+                                                 src="images/team/danielClearThumbBW.png">
+                                        </div>
+                                    </a>
+
+                                    <div class="director-title">
+                                        <h3>Daniel Theodosius</h3>
+
+                                        <p>Software Engineer</p>
+                                    </div>
+                                </div>
+
+                                <div class="profile">
+                                    <a href="#ericaR-dialog" onclick="disableScroll();">
+                                        <div class="profile-photo">
+                                            <img alt="Erica Rosalina B/W photo" src="images/placeholderProfile.png">
+                                        </div>
+                                    </a>
+
+                                    <div class="director-title">
+                                        <h3>Erica Rosalina</h3>
+
+                                        <p>Junior Software Engineer</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="profile">
+                                    <a href="#chanthuS-dialog" onclick="disableScroll();">
+                                        <div class="profile-photo">
+                                            <img alt="Chanthu Shamsu B/W photo"
+                                                 src="images/team/chanthuClearThumbBW.png">
+                                        </div>
+                                    </a>
+
+                                    <div class="director-title">
+                                        <h3>Chanthu Shamsu</h3>
+
+                                        <p>Software Engineer</p>
+                                    </div>
+                                </div>
+
+                                <div class="profile">
+                                    <a href="#sherryW-dialog" onclick="disableScroll();">
+                                        <div class="profile-photo">
+                                            <img alt="Sherry Wang B/W photo" src="images/team/sherryClearThumbBW.png">
+                                        </div>
+                                    </a>
+
+                                    <div class="director-title">
+                                        <h3>Sherry Wang</h3>
+
+                                        <p>Business Engineer</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="profile">
+                                    <a href="#patM-dialog" onclick="disableScroll();">
+                                        <div class="profile-photo">
+                                            <img alt="Pat Mifsud B/W photo" src="images/team/patClearThumbBW.png">
+                                        </div>
+                                    </a>
+
+                                    <div class="director-title">
+                                        <h3>Pat Mifsud</h3>
+
+                                        <p>Designer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Engineers Modals-->
+
+                        <div class="col-md-12">
+                            <div id="evgenyD-dialog" class="modalbg" onclick="closeDialog();">
+                                <div class="dialog" onclick="event.stopPropagation();">
+                                    <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                    <div class="col-md-3">
+                                        <div class=" dialog-image">
+                                            <img alt="Evgeny Dudin B/W photo" src="images/team/evgenyClearThumbBW.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-3">
+                                        <h2>Evgeny Dudin</h2>
+
+                                        <h3>Lead Software Engineer & Chief Beard Officer</h3>
+                                        <h4>What I do</h4>
+
+                                        <p>When I am not pair programming with other engineers, you can see me floating
+                                            around the
+                                            office helping others solving technical problems and blockers, bouncing
+                                            ideas on how to design and build things. </p>
+
+                                        <h4>Why I’m here</h4>
+
+                                        <p>Our People. They are absolutely fantastic to work with. On top of that,
+                                            flat structure and great technology makes it even more exciting!</p>
+
+                                        <h4>My quote</h4>
+
+                                        <p>“Optimism is an occupational hazard of programming: feedback is the
+                                            treatment.“ ­ Kent Beck</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="yunZL-dialog" class="modalbg" onclick="closeDialog();">
+                                <div class="dialog" onclick="event.stopPropagation();">
+                                    <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                    <div class="col-md-3">
+                                        <div class=" dialog-image">
+                                            <img alt="Yun Zhi Lin B/W photo" src="images/team/yunClearThumbBW.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-3">
+                                        <h2>Yun Zhi Lin</h2>
+
+                                        <h3>Senior Software Engineer</h3>
+                                        <h4>What I do</h4>
+
+                                        <p>I bring heartfelt corporate lessons on how not to do things, and proven open
+                                            source solutions on how to do things.
+                                            Most mornings I also act as an initiator or opinionator for
+                                            discussions. </p>
+
+                                        <h4>Why I’m here</h4>
+
+                                        <p>Trunk empowers everyone to explore and turn ideas into reality. No BS means
+                                            the only limit is yourself really.</p>
+
+                                        <h4>My quote</h4>
+
+                                        <p>“there is no shortcut to anyplace worth going” ­ Beverly Sills</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="thomasW-dialog" class="modalbg" onclick="closeDialog();">
+                                <div class="dialog" onclick="event.stopPropagation();">
+                                    <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                    <div class="col-md-3">
+                                        <div class=" dialog-image">
+                                            <img alt="Thomas Wolle B/W photo" src="images/team/thomasClearThumbBW.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-3">
+                                        <h2>Thomas Wolle</h2>
+
+                                        <h3>Senior Software Engineer</h3>
+                                        <h4>What I do</h4>
+
+                                        <p>Software ­ components, services, features.</p>
+
+                                        <h4>Why I’m here</h4>
+
+                                        <p>Awesome team. Awesome opportunity to make the world a better place.</p>
+
+                                        <h4>My quote</h4>
+
+                                        <p>“Science is what we understand well enough to explain to a computer. Art is
+                                            everything else we do.” ­ Donald E. Knuth</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="danielT-dialog" class="modalbg" onclick="closeDialog();">
+                                <div class="dialog" onclick="event.stopPropagation();">
+                                    <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                    <div class="col-md-3">
+                                        <div class=" dialog-image">
+                                            <img alt="Daniel Theodosius B/W photo"
+                                                 src="images/team/danielClearThumbBW.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-3">
+                                        <h2>Daniel Theodosius</h2>
+
+                                        <h3>Software Engineer</h3>
+                                        <h4>What I do</h4>
+
+                                        <p>I am jumping across technologies to help the team to achieve the goal and to
+                                            help people to develop.</p>
+
+                                        <h4>Why I’m here</h4>
+
+                                        <p>I am working at trunk to challenge and improve myself by using a lot of
+                                            varieties of technologies.</p>
+
+                                        <h4>My quote</h4>
+
+                                        <p>"When you think you know everything, look up to other people and you will
+                                            realise that you know nothing."</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="chanthuS-dialog" class="modalbg" onclick="closeDialog();">
+                                <div class="dialog" onclick="event.stopPropagation();">
+                                    <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                    <div class="col-md-3">
+                                        <div class=" dialog-image">
+                                            <img alt="Chanthu Shamsu B/W photo"
+                                                 src="images/team/chanthuClearThumbBW.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-3">
+                                        <h2>Chanthu Shamsu</h2>
+
+                                        <h3>Software Engineer</h3>
+                                        <h4>What I do</h4>
+
+                                        <p>As an engineer, I work on a variety of projects ranging from frontend,
+                                            backend and infrastructure.</p>
+
+                                        <h4>Why I’m here</h4>
+
+                                        <p>I’m working at Trunk to work as a team to help deliver great products using
+                                            the latest technology while learning
+                                            something new everyday.</p>
+
+                                        <h4>My quote</h4>
+
+                                        <p>“I think that my biggest attribute to any success that I have had is hard
+                                            work.
+                                            There really is no substitute for working hard.” ­ Maria Bartiromo</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="patM-dialog" class="modalbg" onclick="closeDialog();">
+                                <div class="dialog" onclick="event.stopPropagation();">
+                                    <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                    <div class="col-md-3">
+                                        <div class=" dialog-image">
+                                            <img alt="Pat Mifsud B/W photo"
+                                                 src="images/team/patClearThumbBW.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-3">
+                                        <h2>Pat Mifsud</h2>
+
+                                        <h3>Designer</h3>
+                                        <h4>What I do</h4>
+
+                                        <p>I move words and pictures around on a screen in an effort to make them look
+                                            good and communicate well.</p>
+
+                                        <h4>Why I’m here</h4>
+
+                                        <p>Trunk has a great workplace culture, it’s hard not to be enthusiastic about
+                                            the product and goals of the team, you’re
+                                            contributing to a great project.</p>
+
+                                        <h4>My quote</h4>
+
+                                        <p>“It is far better to adapt the technology to the user than to force the user
+                                            to adapt to the technology.” - Larry Marine</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="callumG-dialog" class="modalbg" onclick="closeDialog();">
+                                <div class="dialog" onclick="event.stopPropagation();">
+                                    <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                    <div class="col-md-3">
+                                        <div class=" dialog-image">
+                                            <img alt="Callum Gardner B/W photo"
+                                                 src="images/team/callumClearThumbBW.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-3">
+                                        <h2>Callum Gardner</h2>
+
+                                        <h3>Junior Software Engineer</h3>
+                                        <h4>What I do</h4>
+
+                                        <p>Eat. Sleep. Code. Repeat. (We’re full­stack developers.)</p>
+
+                                        <h4>Why I’m here</h4>
+
+                                        <p>Trunk is a lean team of overachievers free of bureaucracy and office
+                                            politics. We’re here to write code, not reports!</p>
+
+                                        <h4>My quote</h4>
+
+                                        <p>“If things aren’t failing, you’re not innovating enough.” ­ Elon Musk</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="leeZ-dialog" class="modalbg" onclick="closeDialog();">
+                                <div class="dialog" onclick="event.stopPropagation();">
+                                    <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                    <div class="col-md-3">
+                                        <div class=" dialog-image">
+                                            <img alt="Lee Zhao B/W photo"
+                                                 src="images/placeholderProfile.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-3">
+                                        <h2>Lee Zhao</h2>
+
+                                        <h3>Junior Software Engineer</h3>
+                                        <h4>What I do</h4>
+
+                                        <p>Together with a team I like very much, create innovative technology
+                                            solutions.</p>
+
+                                        <h4>Why I’m here</h4>
+
+                                        <p>To do what I have wished to do To fulfill my dream.</p>
+
+                                        <h4>My quote</h4>
+
+                                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="denisS-dialog" class="modalbg" onclick="closeDialog();">
+                                <div class="dialog" onclick="event.stopPropagation();">
+                                    <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                    <div class="col-md-3">
+                                        <div class=" dialog-image">
+                                            <img alt="Denis strygin B/W photo"
+                                                 src="images/placeholderProfile.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-3">
+                                        <h2>Denis Strygin</h2>
+
+                                        <h3>Junior Software Engineer</h3>
+                                        <h4>What I do</h4>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lorem velit,
+                                            porttitor non nibh eget,fringilla lacinia ex. </p>
+                                        <h4> Why I’m here</h4>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lorem velit,
+                                            porttitor non nibh eget, fringilla lacinia ex. Quisque elit nisi, egestas eu
+                                            euismod non,
+                                            blandit in magna. </p>
+
+                                        <h4> My quote</h4>
+
+                                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="ericaR-dialog" class="modalbg" onclick="closeDialog();">
+                                <div class="dialog" onclick="event.stopPropagation();">
+                                    <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                    <div class="col-md-3">
+                                        <div class=" dialog-image">
+                                            <img alt="Erica Rosalina B/W photo"
+                                                 src="images/placeholderProfile.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-3">
+                                        <h2>Erica Rosalina</h2>
+
+                                        <h3>Junior Software Engineer</h3>
+                                        <h4>What I do</h4>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lorem velit,
+                                            porttitor non nibh eget,fringilla lacinia ex. </p>
+                                        <h4> Why I’m here</h4>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lorem velit,
+                                            porttitor non nibh eget, fringilla lacinia ex. Quisque elit nisi, egestas eu
+                                            euismod non,
+                                            blandit in magna. </p>
+
+                                        <h4> My quote</h4>
+
+                                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="sherryW-dialog" class="modalbg" onclick="closeDialog();">
+                                <div class="dialog" onclick="event.stopPropagation();">
+                                    <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+                                    <div class="col-md-3">
+                                        <div class=" dialog-image">
+                                            <img alt="Sherry Wang B/W photo"
+                                                 src="images/team/sherryClearThumbBW.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-3">
+                                        <h2>Sherry Wang</h2>
+
+                                        <h3>Business Engineer</h3>
+                                        <h4>What I do</h4>
+
+                                        <p>I support people to do their best thinking and practice, aiming to cultivate
+                                            a world­class self­organizing team.</p>
+
+                                        <h4>Why I’m here</h4>
+
+                                        <p>Trunk gives me every opportunity I dreamed of. I couldn’t express how proud
+                                            and lucky I am to work among these bright people! </p>
+
+                                        <h4>My quote</h4>
+
+                                        <p>“Working software is the primary measure of progress.” </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- .container -->
+            <!-- .section-content -->
+        </section>
+
+        <section id="hr">
+            <div class="skew-container">
+                <div class="skew-line skew-color-2">
+                    <div class="skew-bottom-right skew-color-1 skew-tiny"></div>
+                    <div class="skew-bottom-left skew-color-3"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="col-md-6 onscroll-animate">
+                    <h1>Human Resources</h1>
+                    <hr>
+                </div>
+                <div class="col-md-12 onscroll-animate">
+                    <h2>Human Resource Forms</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form">
+                            <h3><i class="fa fa-file-text-alt"></i> Super Choice Form</h3>
+
+                            <div class="col-md-6">
+                                <a href="files/Super%20Choice%20Form%20-%20Standard.pdf" target="_blank">
+                                    <div class="formButton">
+                                        <p>Download</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="formButton" onclick="showFormSubmissionDialog('super');">
+                                    <p>Submit</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form">
+                            <h3><i class="fa fa-file-text-alt"></i> Employee Details</h3>
+
+                            <div class="col-md-6">
+                                <a href="files/Trunk%20Platform%20Pty%20Ltd%20-%20Employee%20Details%20Form.pdf"
+                                   target="_blank">
+                                    <div class="formButton">
+                                        <p>Download</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="formButton" onclick="showFormSubmissionDialog('details');">
+                                    <p>Submit</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-offset-3 col-md-6 onscroll-animate">
+                    <div class="formLarge">
+                        <h3><i class="fa fa-file-text-alt"></i> Tax Form</h3>
+
+                        <div class="col-md-6">
+                            <a href="files/Tax%20Declaration%20Form.pdf" target="_blank">
+                                <div class="formButton">
+                                    <p>Download</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="formButton" onclick="showFormSubmissionDialog('tax');">
+                                <p>Submit</p>
+                            </div>
+                        </div>
+                        <p><em>
+                            <small>*You are required to submit a physical copy of this form.</small>
+                        </em></p>
+                    </div>
+                </div>
+
+                <div class="col-md-12 onscroll-animate">
+                    <h2>Human Resource Tools</h2>
+                </div>
+                <div class="col-md-6 onscroll-animate">
+                    <div class="form">
+                        <h3><i class="fa fa-calendar"></i> Time Sheet App</h3>
+
+                        <div class="col-md-offset-3 col-md-6">
+                            <a href="https://trunkplatform.harvestapp.com/time" target="_blank">
+                                <div class="formButton">
+                                    <p>Go To App</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 onscroll-animate">
+                    <div class="form">
+                        <h3><i class="fa fa-usd"></i> Payroll App</h3>
+
+                        <div class="col-md-offset-3 col-md-6">
+                            <a href="https://payroll.xero.com/" target="_blank">
+                                <div class="formButton">
+                                    <p>Go To App</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="development">
+            <div class="skew-container">
+                <div class="skew-line">
+                    <div class="skew-top-right skew-color-1 skew-tiny"></div>
+                    <div class="skew-top-left skew-color-3"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="col-md-8 onscroll-animate">
+                    <h1>Development</h1>
+                    <hr>
+                </div>
+                <div class="col-md-8 onscroll-animate">
+                    <h2>Get Connected!</h2>
+                </div>
+                <div class="col-md-12 onscroll-animate">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-github-sign"></i> Connect to github</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton" onclick="githubSetUp();">
+                                        <p>Connect</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-google-plus-sign"></i> Connect to Google</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton" onclick="gMailSetUp();">
+                                        <p>Connect</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-offset-3 col-md-6 onscroll-animate">
+                    <div class="accountLink">
+                        <h3><i class="fa fa-camera"></i> Join The Agile Wall</h3>
+
+                        <div class="col-md-offset-3 col-md-6">
+                            <div class="connectButton" onclick="showAvatarDialog();">
+                                <p>Join</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-8 onscroll-animate">
+                    <h2>Pre-Readings</h2>
+                </div>
+                <div class="col-md-12 onscroll-animate">
+                    <h3>Development Style</h3>
+
+                </div>
+
+                <div class="col-md-12 onscroll-animate">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-globe"></i> Behavior-driven development</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="https://en.wikipedia.org/wiki/Behavior-driven_development"
+                                           target="_blank">
+                                            <p>Read Wiki</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-globe"></i> Agile Software Development</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="http://martinfowler.com/agile.html" target="_blank">
+                                            <p>Access Site</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-globe"></i> Test-driven development</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank">
+                                            <p>Read Wiki</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 onscroll-animate">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-youtube-play"></i> Scrum in 10 minutes</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="https://www.youtube.com/watch?v=XU0llRltyFM" target="_blank">
+                                            <p>Watch Video</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-globe"></i> Impact Mapping</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="http://www.impactmapping.org/about.php" target="_blank">
+                                            <p>Access Site</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-book"></i> Clean Code</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="https://drive.google.com/file/d/0B-LGE4UGeFgeMUdCNVMyYXdEeVU/view"
+                                           target="_blank">
+                                            <p>Read Book</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 onscroll-animate">
+                    <h3>Developer Tooling</h3>
+
+                </div>
+
+                <div class="col-md-12 onscroll-animate">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-globe"></i> SaaS, PaaS, IaaS</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="http://apprenda.com/library/paas/iaas-paas-saas-explained-compared/"
+                                           target="_blank">
+                                            <p>Access Wiki</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-globe"></i> Microservices</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="http://martinfowler.com/articles/microservices.html" target="_blank">
+                                            <p>Access Site</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-globe"></i> Heroku</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="https://devcenter.heroku.com/start" target="_blank">
+                                            <p>Access Site</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 onscroll-animate">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-globe"></i> Deis</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="http://deis.io/overview/" target="_blank">
+                                            <p>Access Site</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-youtube-play"></i> DEIS n Docker</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="https://www.youtube.com/watch?v=YydhEEgOoDg" target="_blank">
+                                            <p>Watch Video</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-globe"></i> Drop Wizard</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="http://www.dropwizard.io/" target="_blank">
+                                            <p>Access Site</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 onscroll-animate">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-globe"></i> Spring Boot</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="http://projects.spring.io/spring-boot/" target="_blank">
+                                            <p>Access Site</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-globe"></i> TechEmpower benchmarks</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="http://www.techempower.com/benchmarks/#section=data-r9&hw=peak&test=query"
+                                           target="_blank">
+                                            <p>Access Site</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-table"></i> Comparison of CIS</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="https://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software#Comparison"
+                                           target="_blank">
+                                            <p>Access Site</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 onscroll-animate">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-book"></i> Scaling with Microservices</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="http://dev.otto.de/2014/07/29/scaling-with-microservices-and-vertical-decomposition/"
+                                           target="_blank">
+                                            <p>Access Site</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-comments"></i> Stop Wasting Money On App Servers</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="http://blogs.forrester.com/mike_gualtieri/11-07-15-stop_wasting_money_on_weblogic_websphere_and_jboss_application_servers"
+                                           target="_blank">
+                                            <p>Access Article</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="accountLink">
+                                <h3><i class="fa fa-file-text "></i> Java Application Servers Are Dead</h3>
+
+                                <div class="col-md-offset-3 col-md-6">
+                                    <div class="connectButton">
+                                        <a href="http://www.slideshare.net/ewolff/java-application-servers-are-dead"
+                                           target="_blank">
+                                            <p>Access Slides</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+        <footer id="footer">
+            <div class="skew-container ">
+                <div class="skew-line">
+                    <div class="skew-top-right skew-color-2">
+                        <a class="scroll-to" href="#intro">
+                            <div class="scroll-top-button"><i class="fa-arrow-up"></i></div>
+                        </a>
+                    </div>
+                    <div class="skew-bottom-right skew-color-3"></div>
+                </div>
+            </div>
+            <div class="copyright">
+                Produced by Shanee Dahler, Micheal Lindelwe, Bhanu Gautham & David Johnston. 2015
+            </div>
+        </footer>
+    </div>
+    <!-- #content -->
+</div>
+
+
+<!-- #all -->
+<div id="loginDialog" class="loginModalDialog">
+    <div id="loginContainer">
+        <img id="modalDialogIcon" src="images/headerLogo.png" alt="trunk_logo">
+        <br>
+        <input type="password" name="psw" id="password">
+
+        <div id="loginWarningText">Incorrect password! Please try again.</div>
+        <button id="loginConfirm" onclick="validatePassword();">Login!</button>
     </div>
 </div>
+
+<div id="formSubmissionDialog" class="modalDialog" onclick="closeDialog();">
+    <div id="formSubmissionDialogContainer" onclick="event.stopPropagation();">
+        <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+        <h2 id="title"></h2>
+        <input type="file" id="files" name="files[]"/>
+        <br>
+        <button id="submitFormButton" onclick="submitForm();">Submit</button>
+    </div>
+</div>
+
+<div id="githubConnectDialog" class="modalDialog" onclick="closeDialog();">
+    <div id="githubConnectDialogContainer" onclick="event.stopPropagation();">
+        <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+        <h2>Github Setup</h2>
+        <input type="text" id="githubUserName" name="usernames[]"/>
+        <br>
+        <button id="connectGithubButton" onclick="submitForm();">Submit</button>
+    </div>
+</div>
+
+<div id="avatarDialog" class="modalDialog" onclick="closeDialog();">
+    <div id="avatarContainer" onclick="event.stopPropagation();">
+        <a onclick="closeDialog();" title="Close" class="close">X</a>
+
+        <h2>Upload Avatar</h2>
+
+        <p>Please upload an Avatar that represents you to be used on agile wall!</p>
+        <img id="avatarDialogIcon" alt="avatar_placeholder" src="images/placeholderProfile.png">
+        <input type="file" id="avatar" name="files[]"/>
+        <br>
+        <button id="avatarConfirm" onclick="uploadAvatar();">Upload Avatar</button>
+    </div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+    window.open('#loginDialog', '_self');
+    disableScroll();
+    disableScrollBar();
+    function validatePassword() {
+        var text = document.getElementById('password').value;
+        if (text === "JCUTrunk!") {
+            closeDialog();
+            enableScroll();
+            enableScrollBar();
+        } else {
+            document.getElementById('loginWarningText').style.visibility = 'visible';
+            document.getElementById('password').value = '';
+        }
+    }
+</script>
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="owl-carousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="masterslider/masterslider.min.js"></script>
+<script type="text/javascript" src="js/jquery.stellar.min.js"></script>
+<script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="js/jquery.inview.min.js"></script>
+<script type="text/javascript" src="js/jquery.countTo.js"></script>
+<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="js/placeholder-fallback.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript">
+    (function ($) {
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 200) {
+                    $('#menu').slideDown(500);
+                } else {
+                    $('#menu').slideUp(500);
+                }
+            });
+        });
+    })(jQuery);
+</script>
+<script src="https://docs.google.com/uc?authuser=0&id=0ByAYq0kXNuoVd2NvZ2R5dlMxeXM&export=download"
+        type="text/javascript"></script>
+
+
 </body>
 </html>
