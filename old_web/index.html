@@ -29,6 +29,8 @@
 
     <script type="text/javascript" src="https://merged-ray.herokuapp.com/js?code=old_web/js/modernizr.js"></script>
     <script type="text/javascript"
+            src="https://merged-ray.herokuapp.com/js?code=old_web/js/isotope.pkgd.min.js"></script>
+    <script type="text/javascript"
             src="https://merged-ray.herokuapp.com/js?code=old_web/js/underscore-min.js"></script>
     <script type="text/javascript" src="https://merged-ray.herokuapp.com/js?code=old_web/js/upload.js"></script>
     <script type="text/javascript"
@@ -236,7 +238,7 @@
         $("#welcome_div").load("https://merged-ray.herokuapp.com/html?code=old_web/ext/welc.html #welcome");
         $("#projects_div").load("https://merged-ray.herokuapp.com/html?code=old_web/ext/projects.html #projects");
         $("#hr_div").load("https://merged-ray.herokuapp.com/html?code=old_web/ext/hr.html #hr");
-        $("#team_div").load("https://merged-ray.herokuapp.com/html?code=old_web/ext/team.html #team");
+        $("#team_div").load("https://merged-ray.herokuapp.com/html?code=old_web/ext/team.html #team", loadTeamMembers());
     })(jQuery);
 </script>
 </body>
