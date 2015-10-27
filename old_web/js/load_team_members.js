@@ -220,9 +220,15 @@ function loadTeamMembers() {
         div0.appendChild(div1);
 
         if (strContains(item.position, "Director")) {
-            directors.appendChild(div0);
+            try {
+                directors.appendChild(div0);
+            } catch (e) {
+            }
         } else {
-            engineers.appendChild(div0);
+            try {
+                engineers.appendChild(div0);
+            } catch (e) {
+            }
         }
     });
 }
