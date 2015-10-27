@@ -30,7 +30,6 @@
     }
 
     function request(pass) {
-
         document.getElementById('password').value = '';
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", "https://merged-ray.herokuapp.com/auth?code=" + pass, false); // false for synchronous request
