@@ -42,7 +42,7 @@
             }
             catch (e) {
             }
-            if (json && json.failed) {
+            if (strContains(res, '{"failed":"true"}') || (json && json.failed)) {
                 try {
                     document.getElementById('loginWarningText').style.visibility = 'visible';
                     document.getElementById('password').value = '';
