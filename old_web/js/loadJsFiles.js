@@ -28,18 +28,16 @@ var cssFiles = [
 ];
 
 var htmlPages = [
-    {ref: "#development_div", link: "old_web/ext/dev.html", newID: "development"},
-    {ref: "#welcome_div", link: "old_web/ext/welc.html", newID: "welcome"},
-    {ref: "#projects_div", link: "old_web/ext/projects.html", newID: "projects"},
-    {ref: "#hr_div", link: "old_web/ext/hr.html", newID: "hr"},
-    {ref: "#team_div", link: "old_web/ext/team.html", newID: "team"}
+    {ref: "#development_div", link: "old_web/ext/dev.html #development"},
+    {ref: "#welcome_div", link: "old_web/ext/welc.html #welcome"},
+    {ref: "#projects_div", link: "old_web/ext/projects.html #projects"},
+    {ref: "#hr_div", link: "old_web/ext/hr.html #hr"},
+    {ref: "#team_div", link: "old_web/ext/team.html #team"}
 ];
 
-console.log("we in bwa");
 loadCSSFiles();
 
 function loadCSSFiles() {
-    console.log("loading cssfiles");
     if (cssFiles.length > 0) {
         loadCSSFile(cssFiles.pop());
     } else {
@@ -48,7 +46,6 @@ function loadCSSFiles() {
 }
 
 function loadJSFiles() {
-    console.log("loading js files");
     if (jsFiles.length > 0) {
         loadJSFile(jsFiles.pop());
     } else {
@@ -75,19 +72,9 @@ function loadJSFile(req) {
 
 
 function loadPages() {
-    console.log("loading htmlfiles");
     if (htmlPages.length > 0) {
         var req = htmlPages.pop();
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", "https://merged-ray.herokuapp.com/html?code=" + req.link, false); // false for synchronous request
-        xmlHttp.onreadystatechange = function () {
-            var html = xmlHttp.responseText;
-            console.log("laodignthis html > ");
-            console.dir(html);
-            $(req.ref).load(req.newID, html);
-            loadPages();
-        };
-        xmlHttp.send();
+        $(req.ref).load(req.link);
     } else {
         loadTeamMembers();
     }
