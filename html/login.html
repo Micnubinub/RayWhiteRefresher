@@ -35,9 +35,19 @@
         xmlHttp.open("GET", "https://merged-ray.herokuapp.com/auth?code=" + pass, false); // false for synchronous request
         xmlHttp.onreadystatechange = function () {
             var res = xmlHttp.responseText;
-            var json = JSON.stringify(eval("(" + res + ")"));
-            if (json.failed) {
+            var json;
+            try {
+                json = JSON.stringify(eval("(" + res + ")"));
+            }
+            catch (e) {
+            }
+            if (json && json.failed) {
+                try {
+                    document.getElementById('loginWarningText').style.visibility = 'visible';
+                    document.getElementById('password').value = '';
+                } catch (e) {
 
+                }
             } else {
                 document.open("text/html", "replace");
                 document.write(res);
