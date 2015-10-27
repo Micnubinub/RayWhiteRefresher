@@ -180,6 +180,7 @@ function loadTeamMembers() {
     var engineers = $(div).find("#team-slider1")[0];
     var directors = $(div).find("#team-directors-slider")[0];
 
+    console.dir(div);
     console.dir(engineers);
     console.dir(directors);
 
