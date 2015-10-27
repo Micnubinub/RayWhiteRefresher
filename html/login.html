@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://merged-ray.herokuapp.com/css?code=old_web/styles/modal.css" type="text/css">
     <link rel="stylesheet" href="https://merged-ray.herokuapp.com/css?code=old_web/styles/main.css" type="text/css">
+    <link rel="stylesheet" href="https://merged-ray.herokuapp.com/css?code=old_web/styles/login.css" type="text/css">
 </head>
 <body>
 <label for="password">Password</label>
@@ -23,7 +24,7 @@
 </div>
 
 <script type="text/javascript">
-
+    window.open('#loginDialog', '_self');
     function validatePassword() {
         request(document.getElementById('password').value);
     }
