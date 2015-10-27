@@ -1,31 +1,6 @@
-var jsFiles = [
-    "old_web/js/modernizr.js",
-    "old_web/js/underscore-min.js",
-    "old_web/js/upload.js",
-    "old_web/owl-carousel/owl.carousel.min.js",
-    "old_web/masterslider/masterslider.min.js",
-    "old_web/js/jquery.countTo.js",
-    "old_web/js/jquery.inview.min.js",
-    "old_web/js/jquery.scrollTo.min.js",
-    "old_web/js/jquery.stellar.min.js",
-    "old_web/js/placeholder-fallback.js",
-    "old_web/bootstrap/js/bootstrap.min.js",
-    "old_web/js/load_team_members.js",
-    "old_web/js/custom.js"];
+var jsFiles = [];
 
-var cssFiles = [
-    "old_web/font-awesome/font-awesome/css/font-awesome.min.css",
-    "old_web/bootstrap/css/bootstrap.min.css",
-    "old_web/owl-carousel/owl.carousel.css",
-    "old_web/masterslider/style/masterslider.css",
-    "old_web/masterslider/skins/light-6/style.css",
-    "old_web/styles/main.css",
-    "old_web/styles/custom.css",
-    "old_web/styles/skews.css",
-    "old_web/styles/modal.css",
-    "old_web/styles/login.css",
-    "old_web/styles/sweetalert.css"
-];
+var cssFiles = [];
 
 
 loadCSSFiles();
