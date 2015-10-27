@@ -176,64 +176,66 @@ var team_members = [
 
 function loadTeamMembers() {
     console.log('loading team members');
-    var div = document.getElementById("team");
-    var engineers = $(div).find("#team-slider1")[0];
-    var directors = $(div).find("#team-directors-slider")[0];
+    setTimeout(function () {
+        var div = document.getElementById("team");
+        var engineers = $(div).find("#team-slider1")[0];
+        var directors = $(div).find("#team-directors-slider")[0];
 
-    console.dir(div);
-    console.dir(engineers);
-    console.dir(directors);
+        console.dir(div);
+        console.dir(engineers);
+        console.dir(directors);
 
-    console.dir(document.getElementById("team-slider1"));
-    console.dir(document.getElementById("team-directors-slider"));
+        console.dir(document.getElementById("team-slider1"));
+        console.dir(document.getElementById("team-directors-slider"));
 
-    team_members.forEach(function (item) {
-        var div0 = document.createElement("div");
-        div0.className = "col-md-12";
+        team_members.forEach(function (item) {
+            var div0 = document.createElement("div");
+            div0.className = "col-md-12";
 
-        var div1 = document.createElement("div");
-        div1.className = "profile";
+            var div1 = document.createElement("div");
+            div1.className = "profile";
 
-        var div2 = document.createElement("div");
-        div2.className = "profile-photo";
+            var div2 = document.createElement("div");
+            div2.className = "profile-photo";
 
-        var a = document.createElement("a");
-        a.onclick = item.onClick;
+            var a = document.createElement("a");
+            a.onclick = item.onClick;
 
 
-        var div3 = document.createElement("div");
-        div3.className = "director-title";
+            var div3 = document.createElement("div");
+            div3.className = "director-title";
 
-        var image = document.createElement("img");
-        image.src = item.image;
+            var image = document.createElement("img");
+            image.src = item.image;
 
-        var h = document.createElement("h3");
-        h.innerHTML = item.name;
+            var h = document.createElement("h3");
+            h.innerHTML = item.name;
 
-        var p = document.createElement("p");
-        p.innerHTML = item.position;
+            var p = document.createElement("p");
+            p.innerHTML = item.position;
 
-        div3.appendChild(h);
-        div3.appendChild(p);
+            div3.appendChild(h);
+            div3.appendChild(p);
 
-        div2.appendChild(image);
-        a.appendChild(div2);
-        div1.appendChild(a);
-        div1.appendChild(div3);
-        div0.appendChild(div1);
+            div2.appendChild(image);
+            a.appendChild(div2);
+            div1.appendChild(a);
+            div1.appendChild(div3);
+            div0.appendChild(div1);
 
-        if (strContains(item.position, "Director")) {
-            try {
-                directors.appendChild(div0);
-            } catch (e) {
+            if (strContains(item.position, "Director")) {
+                try {
+                    directors.appendChild(div0);
+                } catch (e) {
+                }
+            } else {
+                try {
+                    engineers.appendChild(div0);
+                } catch (e) {
+                }
             }
-        } else {
-            try {
-                engineers.appendChild(div0);
-            } catch (e) {
-            }
-        }
-    });
+        });
+    }, 1000)
 }
 
 function getTeamMemberById(id) {
