@@ -28,9 +28,9 @@ var cssFiles = [
 ];
 console.log("we in bwa");
 loadCSSFiles();
-var shouldLoadPages = true;
 
 function loadCSSFiles() {
+    console.log("loading cssfiles");
     if (cssFiles.length > 0) {
         loadCSSFile(cssFiles.pop());
     } else {
@@ -39,12 +39,11 @@ function loadCSSFiles() {
 }
 
 function loadJSFiles() {
+    console.log("loading js files");
     if (jsFiles.length > 0) {
         loadJSFile(jsFiles.pop());
     } else {
-        if (shouldLoadPages) {
-            loadPages();
-        }
+        loadPages();
     }
 }
 
@@ -74,7 +73,7 @@ var htmlPages = [
 ];
 
 function loadPages() {
-    shouldLoadPages = false;
+    console.log("loading htmlfiles");
     if (htmlPages.length > 0) {
         var req = htmlPages.pop();
         var xmlHttp = new XMLHttpRequest();

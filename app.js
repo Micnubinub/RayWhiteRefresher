@@ -57,8 +57,7 @@ app.use('/file', function (req, res) {
             res.write(data);
             res.end();
         });
-    }
-    else {
+    } else {
 
         fs.readFile(req.param('code'), function (err, data) {
             res.writeHead(200, {'Content-Type': 'text/plain', 'Content-Length': data.length});
@@ -67,6 +66,15 @@ app.use('/file', function (req, res) {
         });
     }
 });
+
+app.use('/master', function (req, res) {
+    fs.readFile('old_web/masterslider/style/' + greq.param('code'), function (err, data) {
+        res.writeHead(200, {'Content-Type': '*/*', 'Content-Length': data.length});
+        res.write(data);
+        res.end();
+    });
+});
+
 
 app.use('/font', function (req, res) {
     fs.readFile(getFont(req.param('code')), function (err, data) {
