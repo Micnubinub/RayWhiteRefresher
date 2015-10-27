@@ -3,40 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="icon" href="https://merged-ray.herokuapp.com/image?code=icon.png" type="image/png">
+
+    <link rel="stylesheet" href="https://merged-ray.herokuapp.com/css?code=old_web/styles/modal.css" type="text/css">
+    <link rel="stylesheet" href="https://merged-ray.herokuapp.com/css?code=old_web/styles/main.css" type="text/css">
 </head>
 <body>
 <label for="password">Password</label>
 
-<h3 id="login_text"></h3>
-<input type="text" id="password">
-<button onclick="login()">Login</button>
+<div id="loginDialog" class="loginModalDialog">
+    <div id="loginContainer">
+        <img id="modalDialogIcon" src="https://merged-ray.herokuapp.com/image?code=headerLogo.png" alt="trunk_logo">
+        <br>
+        <input type="password" name="psw" id="password">
+
+        <div id="loginWarningText">Incorrect password! Please try again.</div>
+        <button id="loginConfirm" onclick="validatePassword();">Login!</button>
+    </div>
+</div>
 
 <script type="text/javascript">
-    var login_text = document.getElementById('login_text');
-    function login() {
-        login_text.innerHTML = "Logging in...";
-        request(document.getElementById('password').value)
+
+    function validatePassword() {
+        request(document.getElementById('password').value);
     }
 
     function request(pass) {
+
+        document.getElementById('password').value = '';
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", "https://merged-ray.herokuapp.com/auth?code=" + pass, false); // false for synchronous request
         xmlHttp.onreadystatechange = function () {
-            callback(xmlHttp.responseText);
+            var res = xmlHttp.responseText;
+            var json = JSON.stringify(eval("(" + res + ")"));
+            if (json.failed) {
+
+            } else {
+                document.open("text/html", "replace");
+                document.write(res);
+                document.close();
+            }
         };
         xmlHttp.send();
     }
 
-    function callback(res) {
-        if (res.failed) {
-            login_text.innerHTML = "Login Failed, please try again";
-        } else {
-            document.open("text/html", "replace");
-            document.write(res);
-            document.close();
-        }
+    function strContains(str, content) {
+        try {
+            return str.indexOf(content) > -1;
+        } catch (err) {
 
+        }
+        return false;
     }
+
+
 </script>
 </body>
 </html>
